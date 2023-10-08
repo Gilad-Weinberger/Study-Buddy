@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyBuddy | All Topics</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/logo.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/base/all_topics.css' %}" />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
+  </head>
+  <body>
+    {% include 'base/components/navbar.html' %}
+    <div class="main">
+      <div class="all-topics">
+        <div class="top">
+          <i class="fa-regular fa-arrow-left"></i>
+          <p class="title">browse topics</p>
+        </div>
+        <div class="bottom">
+          <form
+            class="search-form"
+            method="GET"
+            action="{% url 'all_topics' %}"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              class="search"
+              type="search"
+              name="search"
+              placeholder="Search for posts"
+            />
+          </form>
+          <form class="topics-form" method="GET" action="{% url 'home' %}">
+            <div class="item">
+              <input type="submit" class="name" name="topic" value="All" />
+              <p class="count">{{ all_rooms_count }}</p>
+            </div>
+            {% for topic in top_topics %}
+            <div class="item spesific">
+              <input
+                type="submit"
+                class="name"
+                name="topic"
+                value="{{ topic.name }}"
+              />
+              <p class="count">{{ topic.total_room_count }}</p>
+            </div>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const previousUrl = document.referrer;
+        const backButton = document.querySelector(".fa-arrow-left");
+
+        backButton.onclick = function () {
+          if (previousUrl && previousUrl.startsWith(window.location.origin)) {
+            history.back();
+          } else {
+            window.location.href = "{% url 'home' %}";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

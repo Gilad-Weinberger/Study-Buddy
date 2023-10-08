@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyBuddy | Home</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/logo.png' %}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/accounts/user_details.css' %}"
+    />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
+  </head>
+  <body>
+    {% include 'base/components/navbar.html' %}
+    <div class="main">
+      {% include 'base/components/topics.html' %}
+      <div class="rooms">
+        <div class="top">
+          <div class="profile-image">
+            <img src="{{ user.profile_image.url }}" alt="" />
+            <div
+              class="dot{% if message.user_connected_recently %} connected{% endif %}"
+            ></div>
+          </div>
+          <p class="full-name">{{ user.first_name }} {{ user.last_name }}</p>
+          <p class="username">@{{ user.username }}</p>
+          {% if user.is_authenticated %}
+          <div class="changes">
+            <a href="{% url 'accounts:logout' %}" class="btn btn-logout">
+              Logout
+            </a>
+            <a href="" class="btn btn-edit-profile"> Edit Profile </a>
+          </div>
+          {% endif %}
+        </div>
+        <p class="about-title">about</p>
+        <p class="about">{{ user.about }}</p>
+        <p class="room-title">STUDY ROOMS HOSTED BY @{{ user.username }}</p>
+        <div class="items">
+          {% for room in rooms_created_by_user %}
+          <div class="item">
+            <div class="top">
+              <a class="left" href="{% url 'accounts:user_details' room.user_created.id %}">
+                <div class="profile-image">
+                  <img src="{{ room.user_created.profile_image.url }}" alt="" />
+                  <div
+                    class="dot{% if room.user_connected_recently %} connected{% endif %}"
+                  ></div>
+                </div>
+                <p class="name">@{{ room.user_created.username }}</p>
+              </a>
+              <p class="time-past-created">
+                {{ room.date_created|timesince }} ago
+              </p>
+            </div>
+            <p class="room-name">{{ room.name }}</p>
+            <div class="bottom">
+              <div class="left">
+                <i class="fa-light fa-user-group"></i>
+                <p class="people-count">{{ room.participants.count }} Joined</p>
+              </div>
+              <p class="topic">{{ room.topics.first.name }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% include 'base/components/recent_activities.html' %}
+    </div>
+  </body>
+</html>

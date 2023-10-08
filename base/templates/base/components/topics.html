@@ -1,0 +1,18 @@
+<div class="topics">
+  <p class="title">BROWSE TOPICS</p>
+  <form method="GET" action="{% url 'home' %}">
+    <div class="item">
+      <input type="submit" class="name" name="topic" value="All" />
+      <p class="count">{{ all_rooms_count }}</p>
+    </div>
+    {% for topic in pop_topics %}
+    <div class="item">
+      <input type="submit" class="name" name="topic" value="{{ topic.name }}" />
+      <p class="count">{{ topic.total_room_count }}</p>
+    </div>
+    {% endfor %}
+  </form>
+  {% if all_topics|length > 5 %}
+    <a href="{% url 'all_topics' %}" class="more">More <i class="fa-solid fa-arrow-down"></i></a>
+  {% endif %}
+</div>

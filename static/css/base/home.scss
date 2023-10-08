@@ -1,0 +1,360 @@
+$color-main: #71c6dd;
+$color-main-light: #e1f6fb;
+$color-dark: #3f4156;
+$color-dark-medium: #51546e;
+$color-dark-light: #696d97;
+$color-light: #e5e5e5;
+$color-gray: #8b8b8b;
+$color-light-gray: #b2bdbd;
+$color-bg: #2d2d39;
+$color-success: #5dd693;
+$color-error: #fc4b0b;
+
+html {
+  height: 100%;
+}
+body {
+  background-color: $color-bg;
+  margin: 0px;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: $color-dark;
+  padding: 10px 160px 20px 160px;
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    text-decoration: none;
+    img {
+      height: 30px;
+    }
+    .text {
+      margin-left: 15px;
+      font-size: 20px;
+      color: $color-light;
+      font-weight: 700;
+    }
+  }
+  form {
+    position: relative;
+    i {
+      color: $color-gray;
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .search {
+      background-color: #50556e;
+      color: white;
+      border: none;
+      padding: 14px 45px;
+      font-size: 15px;
+      width: 360px;
+      border-radius: 5px;
+    }
+  }
+  .login {
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $color-gray;
+    .hello {
+      font-size: 15px;
+    }
+    .name {
+      color: $color-main;
+    }
+    .profile-image {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      border: 2px solid $color-main;
+    }
+    i {
+      font-size: 34px;
+    }
+    .text {
+      margin: 0px;
+      margin-left: 8px;
+      font-size: 17px;
+    }
+  }
+}
+.main {
+  padding: 20px 160px;
+  display: flex;
+  justify-content: space-between;
+  .topics {
+    width: 200px;
+    .title {
+      color: $color-dark-light;
+      margin: 0px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      .name {
+        color: $color-light-gray;
+        margin: 0px;
+        text-decoration: none;
+        background: none;
+        border: none;
+        font-size: 17px;
+        cursor: pointer;
+        width: 200px;
+        text-align: left;
+        padding: 20px 0px;
+        &:hover {
+          color: $color-main;
+        }
+        &:hover ~ .count {
+          color: $color-main;
+        }
+      }
+      .count {
+        color: $color-light-gray;
+        background-color: $color-dark;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+    }
+    .clicked {
+      .name {
+        color: $color-main;
+      }
+      .count {
+        color: $color-main;
+      }
+    }
+    .more{
+      color: $color-main;
+      text-decoration: none;
+      i{
+        margin-left: 5px;
+      }
+      &:hover{
+        border-bottom: 1px solid $color-main;
+      }
+    }
+  }
+  .rooms {
+    width: 580px;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .left {
+        text-decoration: none;
+        .title {
+          color: $color-light;
+          font-size: 16px;
+          margin: 0px;
+          font-weight: 500;
+        }
+        .rooms-available {
+          color: $color-dark-light;
+          font-size: 15px;
+          margin: 0px;
+          margin-top: 5px;
+          font-weight: 500;
+        }
+      }
+      .create {
+        color: $color-dark;
+        background-color: $color-main;
+        padding: 12px 18px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        font-weight: 500;
+        i {
+          margin-right: 2px;
+        }
+      }
+    }
+    .items {
+      margin-top: 20px;
+      .item {
+        padding: 20px;
+        background-color: $color-dark;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        .top {
+          display: flex;
+          align-items: center;
+          max-height: 40px;
+          .left {
+            display: flex;
+            align-items: center;
+            .profile-image {
+              display: flex;
+              position: relative;
+              margin-right: 10px;
+              $image-height: 32px;
+              max-height: $image-height;
+              img {
+                height: $image-height;
+                width: $image-height;
+                border-radius: 50%;
+                border: 2px solid $color-main;
+              }
+              .dot {
+                height: 9px;
+                width: 9px;
+                border: 2px solid $color-dark;
+                background-color: $color-gray;
+                border-radius: 50%;
+                position: absolute;
+                right: -4px;
+                bottom: -4px;
+              }
+            }
+            .name {
+              color: $color-main;
+              margin: 0px;
+            }
+          }
+          .time-past-created {
+            color: $color-light;
+            font-size: 14px;
+          }
+        }
+        .room-name {
+          color: $color-light;
+          margin: 15px 0px 20px 0px;
+          font-size: 20px;
+          font-weight: 500;
+          cursor: pointer;
+          &:hover{
+            color: $color-main;
+          }
+        }
+        .bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 2px solid $color-dark-medium;
+          padding-top: 10px;
+          .left {
+            display: flex;
+            align-items: center;
+            i {
+              margin-right: 8px;
+              color: $color-main;
+            }
+            .people-count {
+              color: $color-light-gray;
+              margin: 0px;
+            }
+          }
+          .topic {
+            margin: 0px;
+            color: $color-light-gray;
+            background-color: $color-dark-medium;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  $recent-border-radius: 5px;
+  .recent_activities {
+    width: 300px;
+    border-radius: $recent-border-radius;
+    background-color: $color-dark;
+    .title {
+      color: $color-light;
+      background-color: $color-dark-light;
+      padding: 10px 15px;
+      margin: 0px;
+      border-top-right-radius: $recent-border-radius;
+      border-top-left-radius: $recent-border-radius;
+      letter-spacing: 0.8px;
+    }
+    .items {
+      padding: 15px;
+      height: 100%;
+      .item {
+        padding: 15px;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid $color-dark-medium;
+        .profile {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          margin-bottom: 5px;
+          $image-height: 32px;
+          .profile-image {
+            display: flex;
+            position: relative;
+            max-height: $image-height;
+            margin-right: 10px;
+            img {
+              height: $image-height;
+              width: $image-height;
+              border-radius: 50%;
+              border: 2px solid $color-main;
+            }
+            .dot {
+              height: 9px;
+              width: 9px;
+              border: 2px solid $color-dark;
+              background-color: $color-gray;
+              border-radius: 50%;
+              position: absolute;
+              right: -4px;
+              bottom: -4px;
+            }
+          }
+          .info {
+            .name {
+              margin: 0px;
+              color: $color-main;
+            }
+            .time-past-sent {
+              margin: 0px;
+              color: $color-gray;
+              font-size: 13.4px;
+            }
+          }
+        }
+        .reply,
+        .room {
+          margin: 0px;
+          color: $color-light-gray;
+          margin-left: 40px;
+          font-size: 14px;
+        }
+        .room {
+          color: $color-main;
+          text-decoration: none;
+        }
+        .message {
+          width: 226px;
+          max-width: 226px;
+          background-color: $color-bg;
+          color: white;
+          padding: 8px;
+          font-size: 14px;
+        }
+        &:nth-last-child(-1) {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
