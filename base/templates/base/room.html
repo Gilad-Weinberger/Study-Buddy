@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyBuddy | Home</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/logo.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/base/home.css' %}" />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
+  </head>
+  <body>
+    {% include 'base/components/navbar.html' %}
+    <div class="main">
+      {% include 'base/components/topics.html' %}
+      <div class="rooms">
+        <div class="top">
+          <div class="left">
+            <p class="title">STUDY ROOMS</p>
+            <p class="rooms-available">{{ rooms.count }} Rooms available</p>
+          </div>
+          <a class="create" href="">
+            <i class="fa-solid fa-plus"></i> Create Rooms
+          </a>
+        </div>
+        <div class="items">
+          {% for room in rooms %}
+          <div class="item">
+            <div class="top">
+              <a class="left" href="{% url 'accounts:user_details' room.user_created.id %}">
+                <div class="profile-image">
+                  <img src="{{ room.user_created.profile_image.url }}" alt="" />
+                  <div
+                    class="dot{% if room.user_connected_recently %} connected{% endif %}"
+                  ></div>
+                </div>
+                <p class="name">@{{ room.user_created.username }}</p>
+              </a>
+              <p class="time-past-created">
+                {{ room.date_created|timesince }} ago
+              </p>
+            </div>
+            <p class="room-name">{{ room.name }}</p>
+            <div class="bottom">
+              <div class="left">
+                <i class="fa-light fa-user-group"></i>
+                <p class="people-count">{{ room.participants.count }} Joined</p>
+              </div>
+              <p class="topic">{{ room.topics.first.name }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% include 'base/components/recent_activities.html' %}
+    </div>
+  </body>
+</html>

@@ -59,3 +59,15 @@ def all_topics(request):
     }
 
     return render(request, 'base/all_topics.html', context)
+
+
+def room(request, room_id):
+    room = Room.objects.get(room_id=room_id)
+    messages = room.get_messages_ordered_by_datetime()
+
+    context = {
+        'room': room,
+        'messages': messages,
+    }
+
+    return render(request, 'base/room.html', context)
