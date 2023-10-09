@@ -99,7 +99,11 @@
             {% if request.user.is_authenticated %}
             <form class="write-message" action="" method="post">
               {% csrf_token %}
-              <input type="text" name="text" placeholder="Write your message here..." />
+              <input
+                type="text"
+                name="text"
+                placeholder="Write your message here..."
+              />
             </form>
             {% endif %}
           </div>
@@ -113,13 +117,20 @@
         </div>
         <div class="bottom">
           {% for participant in room.participants.all %}
-          <a class="participant" href="{% url 'accounts:user_details' participant.id %}">
+          <a
+            class="participant"
+            href="{% url 'accounts:user_details' participant.id %}"
+          >
             <div class="profile-image">
               <img src="{{ participant.profile_image.url }}" alt="" />
-              <div class="dot{% if participant.user_connected_recently %} connected{% endif %}"></div>
+              <div
+                class="dot{% if participant.user_connected_recently %} connected{% endif %}"
+              ></div>
             </div>
             <div class="info">
-              <p class="full-name">{{ participant.first_name }} {{ participant.last_name }}</p>
+              <p class="full-name">
+                {{ participant.first_name }} {{ participant.last_name }}
+              </p>
               <p class="username">@{{ participant.username }}</p>
             </div>
           </a>

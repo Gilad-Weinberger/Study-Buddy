@@ -73,7 +73,7 @@ def room(request, room_id):
             date_sent = timezone.now()
         )
         message.save()
-        return redirect('room', pk=room.id)
+        return redirect('room', room_id=room.id)
 
     context = {
         'room': room,

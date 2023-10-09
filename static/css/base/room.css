@@ -182,8 +182,8 @@ body {
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 .main .room .bottom .chat {
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 300px;
+  max-height: 300px;
   padding: 20px 0px 0px 20px;
   overflow-y: auto;
   background-color: #2d2d39;
@@ -246,7 +246,7 @@ body {
 }
 .main .room .bottom .chat .write-message {
   position: sticky;
-  bottom: 0px;
+  bottom: -2px;
   padding: 15px 0px 0px 0px;
   width: calc(100% - 4px);
   background-color: #2d2d39;
