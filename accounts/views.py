@@ -51,14 +51,13 @@ def user_details(request, user_id):
     return render(request, 'accounts/user_details.html', context)
 
 def signup(request):
-    if request.method == "POST":
-        form = RegistrationForm(request.POST or None)
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'account created successfully')
-            return redirect('dashboard-home')
-    
+            user = form.save()
+            login(request, user)
+            return redirect('index')
     else:
         form = RegistrationForm()
-
-    return render(request, 'accounts/signup.html', {'form': form})
+        
+    return render(request, 'accounts/register.html', {'form': form})
