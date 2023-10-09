@@ -107,4 +107,156 @@ body {
   margin: 0px;
   font-weight: 500;
   color: #e5e5e5;
+}
+.main .room .bottom {
+  padding: 20px 20px;
+}
+.main .room .bottom .details {
+  margin-bottom: 30px;
+}
+.main .room .bottom .details .room-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 35px;
+}
+.main .room .bottom .details .room-details .room-name {
+  color: #71c6dd;
+  font-weight: 500;
+  font-size: 25px;
+  margin: 0px;
+}
+.main .room .bottom .details .room-details .time-past-created {
+  color: #b2bdbd;
+  font-size: 15px;
+}
+.main .room .bottom .details .hosted {
+  text-transform: uppercase;
+  margin: 10px 0px;
+  color: #8b8b8b;
+  font-weight: 500;
+  font-size: 13px;
+}
+.main .room .bottom .details .user-created {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+.main .room .bottom .details .user-created .profile-image {
+  display: flex;
+  position: relative;
+  max-height: 30px;
+  margin-right: 10px;
+}
+.main .room .bottom .details .user-created .profile-image img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid #71c6dd;
+}
+.main .room .bottom .details .user-created .profile-image .dot {
+  height: 9px;
+  width: 9px;
+  border: 2px solid #3f4156;
+  background-color: #8b8b8b;
+  border-radius: 50%;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+.main .room .bottom .details .user-created .name {
+  margin: 0px;
+  color: #71c6dd;
+}
+.main .room .bottom .details .topics {
+  display: flex;
+}
+.main .room .bottom .details .topics .topic {
+  color: #e5e5e5;
+  background-color: #696d97;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.main .room .bottom .chat {
+  min-height: 450px;
+  max-height: 450px;
+  padding: 20px 0px 0px 20px;
+  overflow-y: auto;
+  background-color: #2d2d39;
+  position: relative;
+}
+.main .room .bottom .chat .messages .message {
+  border-left: 2px solid #3f4156;
+  padding: 0px 15px;
+  margin-bottom: 20px;
+}
+.main .room .bottom .chat .messages .message .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 250px;
+  margin-bottom: 10px;
+}
+.main .room .bottom .chat .messages .message .details .user-sent {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+.main .room .bottom .chat .messages .message .details .user-sent .profile-image {
+  display: flex;
+  position: relative;
+  max-height: 28px;
+  margin-right: 10px;
+}
+.main .room .bottom .chat .messages .message .details .user-sent .profile-image img {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 2px solid #71c6dd;
+}
+.main .room .bottom .chat .messages .message .details .user-sent .profile-image .dot {
+  height: 9px;
+  width: 9px;
+  border: 2px solid #3f4156;
+  background-color: #8b8b8b;
+  border-radius: 50%;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+.main .room .bottom .chat .messages .message .details .user-sent .name {
+  margin: 0px;
+  color: #71c6dd;
+  font-size: 14px;
+}
+.main .room .bottom .chat .messages .message .details .time-past-sent {
+  margin: -5px 0px 0px 0px;
+  color: #b2bdbd;
+  font-size: 14px;
+}
+.main .room .bottom .chat .messages .message .message-text {
+  color: #b2bdbd;
+  font-size: 14px;
+  margin: 0px;
+}
+.main .room .bottom .chat .write-message {
+  position: sticky;
+  bottom: 0px;
+  padding: 15px 0px 0px 0px;
+  width: calc(100% - 4px);
+  background-color: #2d2d39;
+  z-index: 1;
+}
+.main .room .bottom .chat .write-message input {
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #696d97;
+  color: #e5e5e5;
+  border-radius: 5px;
+  margin-left: -20px;
 }/*# sourceMappingURL=room.css.map */

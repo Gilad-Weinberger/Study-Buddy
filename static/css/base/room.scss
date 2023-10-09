@@ -116,5 +116,161 @@ body {
         color: $color-light;
       }
     }
+    .bottom {
+      padding: 20px 20px;
+      .details {
+        margin-bottom: 30px;
+        .room-details {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          max-height: 35px;
+          .room-name {
+            color: $color-main;
+            font-weight: 500;
+            font-size: 25px;
+            margin: 0px;
+          }
+          .time-past-created {
+            color: $color-light-gray;
+            font-size: 15px;
+          }
+        }
+        .hosted {
+          text-transform: uppercase;
+          margin: 10px 0px;
+          color: $color-gray;
+          font-weight: 500;
+          font-size: 13px;
+        }
+        .user-created {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          margin-bottom: 5px;
+          $image-height: 30px;
+          .profile-image {
+            display: flex;
+            position: relative;
+            max-height: $image-height;
+            margin-right: 10px;
+            img {
+              height: $image-height;
+              width: $image-height;
+              border-radius: 50%;
+              border: 2px solid $color-main;
+            }
+            .dot {
+              height: 9px;
+              width: 9px;
+              border: 2px solid $color-dark;
+              background-color: $color-gray;
+              border-radius: 50%;
+              position: absolute;
+              right: -4px;
+              bottom: -4px;
+            }
+          }
+          .name {
+            margin: 0px;
+            color: $color-main;
+          }
+        }
+        .topics {
+          display: flex;
+          .topic {
+            color: $color-light;
+            background-color: $color-dark-light;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-right: 12px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+      .chat {
+        min-height: 450px;
+        max-height: 450px;
+        padding: 20px 0px 0px 20px;
+        overflow-y: auto;
+        background-color: $color-bg;
+        position: relative;
+        .messages {
+          .message {
+            border-left: 2px solid $color-dark;
+            padding: 0px 15px;
+            margin-bottom: 20px;
+            .details {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              max-width: 250px;
+              margin-bottom: 10px;
+              .user-sent {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                margin-bottom: 5px;
+                $image-height: 28px;
+                .profile-image {
+                  display: flex;
+                  position: relative;
+                  max-height: $image-height;
+                  margin-right: 10px;
+                  img {
+                    height: $image-height;
+                    width: $image-height;
+                    border-radius: 50%;
+                    border: 2px solid $color-main;
+                  }
+                  .dot {
+                    height: 9px;
+                    width: 9px;
+                    border: 2px solid $color-dark;
+                    background-color: $color-gray;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -4px;
+                    bottom: -4px;
+                  }
+                }
+                .name {
+                  margin: 0px;
+                  color: $color-main;
+                  font-size: 14px;
+                }
+              }
+              .time-past-sent {
+                margin: -5px 0px 0px 0px;
+                color: $color-light-gray;
+                font-size: 14px;
+              }
+            }
+            .message-text {
+              color: $color-light-gray;
+              font-size: 14px;
+              margin: 0px;
+            }
+          }
+        }
+        .write-message {
+          position: sticky;
+          bottom: 0px;
+          padding: 15px 0px 0px 0px;
+          width: calc(100% - 4px);
+          background-color: $color-bg;
+          z-index: 1;
+          input {
+            width: 100%;
+            padding: 12px 10px;
+            background-color: $color-dark-light;
+            color: $color-light;
+            border-radius: 5px;
+            margin-left: -20px;
+          }
+        }
+      }
+    }
   }
 }

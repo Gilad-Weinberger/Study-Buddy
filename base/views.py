@@ -1,5 +1,5 @@
 from django.db.models import Count
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Room, Topic, Message
 from django.utils import timezone
 from django.db.models import Q  
@@ -64,6 +64,16 @@ def all_topics(request):
 def room(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     messages = room.get_messages_ordered_by_datetime()
+
+    if request.method == 'POST':
+        message = Message.objects.create(
+            room = room,
+            user = request.user,
+            text = request.POST.get('text'),
+            date_sent = timezone.now()
+        )
+        message.save()
+        return redirect('room', pk=room.id)
 
     context = {
         'room': room,

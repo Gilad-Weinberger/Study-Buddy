@@ -73,11 +73,11 @@
           </div>
           <div class="chat">
             <div class="messages">
-              {% for message in messages.reverse %}
+              {% for message in messages %}
               <div class="message">
                 <div class="details">
                   <a
-                    class="user-created"
+                    class="user-sent"
                     href="{% url 'accounts:user_details' message.user.id %}"
                   >
                     <div class="profile-image">
@@ -96,9 +96,12 @@
               </div>
               {% endfor %}
             </div>
+            {% if request.user.is_authenticated %}
             <form class="write-message" action="" method="post">
-              <input type="text" placeholder="Write your message here..." />
+              {% csrf_token %}
+              <input type="text" name="text" placeholder="Write your message here..." />
             </form>
+            {% endif %}
           </div>
         </div>
       </div>
