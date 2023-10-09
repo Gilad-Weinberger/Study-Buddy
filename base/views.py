@@ -20,7 +20,7 @@ def Home(request):
         else:
             rooms = Room.objects.filter(topics__name=selected_topic)
     else:
-        rooms = Room.objects.filter(topics__name=selected_topic)
+        rooms = Room.objects.all()
 
     current_time = timezone.now()
     last_hour = current_time - timezone.timedelta(hours=1)
