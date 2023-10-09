@@ -33,8 +33,8 @@
       href="{% static 'images/logo.png' %}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="{% static 'css/base/home.css' %}" />
-    <meta http-equiv="refresh" content="1" />
+    <link rel="stylesheet" href="{% static 'css/base/room.css' %}" />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
     {% include 'base/components/navbar.html' %}
@@ -44,8 +44,85 @@
           <i class="fa-regular fa-arrow-left"></i>
           <p class="title">study room</p>
         </div>
+        <div class="bottom">
+          <div class="details">
+            <div class="room-details">
+              <p class="room-name">{{ room.name }}</p>
+              <p class="time-past-created">
+                {{ room.date_created|timesince }} ago
+              </p>
+            </div>
+            <p class="hosted">hosted by</p>
+            <a
+              class="user-created"
+              href="{% url 'accounts:user_details' room.user_created.id %}"
+            >
+              <div class="profile-image">
+                <img src="{{ room.user_created.profile_image.url }}" alt="" />
+                <div
+                  class="dot{% if room.user_connected_recently %} connected{% endif %}"
+                ></div>
+              </div>
+              <p class="name">@{{ room.user_created.username }}</p>
+            </a>
+            <div class="topics">
+              {% for topic in room.topics.all %}
+              <p class="topic">{{ topic }}</p>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="chat">
+            <div class="messages">
+              {% for message in messages.reverse %}
+              <div class="message">
+                <div class="details">
+                  <a
+                    class="user-created"
+                    href="{% url 'accounts:user_details' message.user.id %}"
+                  >
+                    <div class="profile-image">
+                      <img src="{{ message.user.profile_image.url }}" alt="" />
+                      <div
+                        class="dot{% if message.user_connected_recently %} connected{% endif %}"
+                      ></div>
+                    </div>
+                    <p class="name">@{{ message.user.username }}</p>
+                  </a>
+                  <p class="time-past-sent">
+                    {{ message.date_sent|timesince }}
+                  </p>
+                </div>
+                <p class="message-text">{{ message.text }}</p>
+              </div>
+              {% endfor %}
+            </div>
+            <form class="write-message" action="" method="post">
+              <input type="text" placeholder="Write your message here..." />
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="participants"></div>
+      <div class="participants">
+        <div class="top">
+          <i class="fa-solid fa-user-group"></i>
+          <p class="title">participants</p>
+          <p class="count">{{ room.participants.count }} Joined</p>
+        </div>
+        <div class="bottom">
+          {% for participant in room.participants.all %}
+          <a class="participant" href="{% url 'accounts:user_details' participant.id %}">
+            <div class="profile-image">
+              <img src="{{ participant.profile_image.url }}" alt="" />
+              <div class="dot{% if participant.user_connected_recently %} connected{% endif %}"></div>
+            </div>
+            <div class="info">
+              <p class="full-name">{{ participant.first_name }} {{ participant.last_name }}</p>
+              <p class="username">@{{ participant.username }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
