@@ -17,7 +17,7 @@ class Room(models.Model):
         return None
 
     def get_messages_ordered_by_datetime(self):
-        return Message.objects.filter(room=self).order_by('date_created')
+        return Message.objects.filter(room=self).order_by('date_sent')
 
     def __str__(self):
         return self.name

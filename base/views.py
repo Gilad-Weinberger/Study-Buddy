@@ -62,7 +62,7 @@ def all_topics(request):
 
 
 def room(request, room_id):
-    room = get_object_or_404(Room, room_id=room_id)
+    room = get_object_or_404(Room, pk=room_id)
     messages = room.get_messages_ordered_by_datetime()
 
     context = {
