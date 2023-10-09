@@ -135,13 +135,13 @@ body {
         color: $color-main;
       }
     }
-    .more{
+    .more {
       color: $color-main;
       text-decoration: none;
-      i{
+      i {
         margin-left: 5px;
       }
-      &:hover{
+      &:hover {
         border-bottom: 1px solid $color-main;
       }
     }
@@ -229,14 +229,16 @@ body {
             font-size: 14px;
           }
         }
-        .room-name {
-          color: $color-light;
-          margin: 20px 0px;
-          font-size: 20px;
-          font-weight: 500;
+        .room-link {
           text-decoration: none;
-          &:hover{
-            color: $color-main;
+          .room-name {
+            color: $color-light;
+            margin: 20px 0px;
+            font-size: 20px;
+            font-weight: 500;
+            &:hover {
+              color: $color-main;
+            }
           }
         }
         .bottom {
