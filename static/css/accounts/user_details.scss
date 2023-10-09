@@ -265,11 +265,17 @@ body {
             font-size: 14px;
           }
         }
-        .room-name {
-          color: $color-light;
-          margin: 15px 0px 20px 0px;
-          font-size: 20px;
-          font-weight: 500;
+        .room-link {
+          text-decoration: none;
+          .room-name {
+            color: $color-light;
+            margin: 20px 0px;
+            font-size: 20px;
+            font-weight: 500;
+            &:hover {
+              color: $color-main;
+            }
+          }
         }
         .bottom {
           display: flex;

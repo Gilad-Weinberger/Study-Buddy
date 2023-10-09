@@ -34,12 +34,32 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="{% static 'css/base/home.css' %}" />
-    <!-- <meta http-equiv="refresh" content="1" /> -->
+    <meta http-equiv="refresh" content="1" />
   </head>
   <body>
     {% include 'base/components/navbar.html' %}
     <div class="main">
-      
+      <div class="room">
+        <div class="top">
+          <i class="fa-regular fa-arrow-left"></i>
+          <p class="title">study room</p>
+        </div>
+      </div>
+      <div class="participants"></div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const previousUrl = document.referrer;
+        const backButton = document.querySelector(".fa-arrow-left");
+
+        backButton.onclick = function () {
+          if (previousUrl && previousUrl.startsWith(window.location.origin)) {
+            history.back();
+          } else {
+            window.location.href = "{% url 'home' %}";
+          }
+        };
+      });
+    </script>
   </body>
 </html>

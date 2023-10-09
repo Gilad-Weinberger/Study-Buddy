@@ -255,11 +255,17 @@ body {
   color: #e5e5e5;
   font-size: 14px;
 }
-.main .rooms .items .item .room-name {
+.main .rooms .items .item .room-link {
+  text-decoration: none;
+}
+.main .rooms .items .item .room-link .room-name {
   color: #e5e5e5;
-  margin: 15px 0px 20px 0px;
+  margin: 20px 0px;
   font-size: 20px;
   font-weight: 500;
+}
+.main .rooms .items .item .room-link .room-name:hover {
+  color: #71c6dd;
 }
 .main .rooms .items .item .bottom {
   display: flex;

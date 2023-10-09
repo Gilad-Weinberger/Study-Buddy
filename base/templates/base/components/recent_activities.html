@@ -16,7 +16,7 @@
         </div>
       </a>
       <p class="reply">in the room:</p>
-      <a href="" class="room">"{{ message.room.name }}"</a>
+      <a href="{% url 'room' message.room.id %}" class="room">"{{ message.room.name }}"</a>
       <p class="message">{{ message.text }}</p>
     </div>
     {% endfor %}

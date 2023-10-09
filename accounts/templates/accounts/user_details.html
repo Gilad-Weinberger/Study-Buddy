@@ -82,7 +82,7 @@
                 {{ room.date_created|timesince }} ago
               </p>
             </div>
-            <p class="room-name">{{ room.name }}</p>
+            <a href="{% url 'room' room.id %}" class="room-link"><p class="room-name">{{ room.name }}</p></a>
             <div class="bottom">
               <div class="left">
                 <i class="fa-light fa-user-group"></i>
