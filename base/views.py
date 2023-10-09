@@ -1,5 +1,5 @@
 from django.db.models import Count
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Room, Topic, Message
 from django.utils import timezone
 from django.db.models import Q  
@@ -62,7 +62,7 @@ def all_topics(request):
 
 
 def room(request, room_id):
-    room = Room.objects.get(room_id=room_id)
+    room = get_object_or_404(Room, room_id=room_id)
     messages = room.get_messages_ordered_by_datetime()
 
     context = {
