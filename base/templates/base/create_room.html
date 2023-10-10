@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyBuddy | Home</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/logo.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/base/create_room.css' %}" />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
+  </head>
+  <body>
+    {% include 'base/components/navbar.html' %}
+    <div class="main">
+      
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const previousUrl = document.referrer;
+        const backButton = document.querySelector(".fa-arrow-left");
+
+        backButton.onclick = function () {
+          if (previousUrl && previousUrl.startsWith(window.location.origin)) {
+            history.back();
+          } else {
+            window.location.href = "{% url 'home' %}";
+          }
+        };
+
+        var objDiv = document.querySelector(".chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+      });
+    </script>
+  </body>
+</html>
