@@ -60,7 +60,7 @@ def signup(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower().canonicalize()
+            user.username = user.username.lower()
             user.save()
             login(request, user)
             return redirect('home')
