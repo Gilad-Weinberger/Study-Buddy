@@ -150,6 +150,9 @@
             window.location.href = "{% url 'home' %}";
           }
         };
+
+        var objDiv = document.querySelector(".chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
       });
     </script>
   </body>
