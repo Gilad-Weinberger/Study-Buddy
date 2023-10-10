@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import os
+from django.contrib.auth.models import BaseUserManager
 
 def profile_image_upload_path(instance, filename):
     filename, ext = os.path.splitext(filename)
     new_filename = f"profile_{instance.email}{ext}"
     return os.path.join('profile_images', new_filename)
+
 
 class User(AbstractUser):
     first_name = models.CharField(max_length=50, null=True)
@@ -13,5 +15,5 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, null=True)
     avatar = models.ImageField(null=True, upload_to=profile_image_upload_path)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
