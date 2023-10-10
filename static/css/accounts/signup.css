@@ -72,12 +72,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-.main .login {
+.main .signup {
   width: 500px;
   background-color: #3f4156;
   border-radius: 10px;
 }
-.main .login .title {
+.main .signup .title {
   background-color: #696d97;
   margin: 0px;
   padding: 15px calc(50% - 25px);
@@ -85,34 +85,34 @@ body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.main .login .find {
+.main .signup .find {
   margin: 15px 0px 10px 0px;
   padding: 15px calc(50% - 83px);
   color: #e5e5e5;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.main .login form {
+.main .signup form {
   display: flex;
   flex-direction: column;
   padding: 0px 30px 20px 30px;
 }
-.main .login form p {
+.main .signup form p {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
 }
-.main .login form p span {
+.main .signup form p span {
   color: #71c6dd;
 }
-.main .login form p span ul li {
+.main .signup form p span ul li {
   color: #71c6dd;
 }
-.main .login form p label {
+.main .signup form p label {
   color: #b2bdbd;
   margin-bottom: 10px;
 }
-.main .login form p input {
+.main .signup form p input {
   padding: 10px;
   border: 1px solid #696d97;
   background: transparent;
@@ -120,10 +120,10 @@ body {
   color: #e5e5e5;
   font-weight: 500;
 }
-.main .login form p input:focus {
+.main .signup form p input:focus {
   border: 1px solid #71c6dd;
 }
-.main .login form .submit {
+.main .signup form .submit {
   width: 100px;
   background-color: #71c6dd;
   color: #3f4156;
@@ -134,15 +134,15 @@ body {
   transition: all ease-in-out 0.3s;
   cursor: pointer;
 }
-.main .login form .submit i {
+.main .signup form .submit i {
   margin-right: 8px;
 }
-.main .login .not {
+.main .signup .not {
   text-align: center;
   color: #e5e5e5;
   margin-bottom: 30px;
 }
-.main .login .not a {
+.main .signup .not a {
   text-decoration: none;
   color: #71c6dd;
 }/*# sourceMappingURL=signup.css.map */

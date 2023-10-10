@@ -81,7 +81,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  .login {
+  .signup {
     width: 500px;
     background-color: $color-dark;
     border-radius: 10px;
@@ -108,10 +108,10 @@ body {
         display: flex;
         flex-direction: column;
         margin-top: 0px;
-        span{
+        span {
           color: $color-main;
-          ul{
-            li{
+          ul {
+            li {
               color: $color-main;
             }
           }
