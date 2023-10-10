@@ -8,6 +8,7 @@ from .models import CustomUser
 from base.models import Topic, Message, Room
 from django.db.models import Count
 
+
 def user_details(request, user_id):
     user = get_object_or_404(CustomUser, pk=user_id)  
     rooms_created_by_user = user.rooms_created.all()
@@ -50,14 +51,30 @@ def user_details(request, user_id):
 
     return render(request, 'accounts/user_details.html', context)
 
+
 def signup(request):
+    form = RegistrationForm()
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            profile_image = form.cleaned_data['profile_image']
+
+            user = CustomUser.objects.create_user(
+                email=email,
+                username=username,
+                password=password,
+                first_name=first_name,
+                last_name=last_name,
+                profile_image=profile_image,
+            )
+
             login(request, user)
-            return redirect('index')
-    else:
-        form = RegistrationForm()
+            return redirect('home')
+        
         
     return render(request, 'accounts/signup.html', {'form': form})
