@@ -13,8 +13,7 @@ class RoomForm(forms.ModelForm):
         widget=FilteredSelectMultiple('User', is_stacked=False),
     )
 
-class RoomForm(forms.ModelForm):
+class CreateRoomForm(forms.ModelForm):
     class Meta:
         model = Room
-        fields = '__all__'
-        exclude = ['host', 'participants']
+        fields = ['name', 'topics', 'is_private', 'key']

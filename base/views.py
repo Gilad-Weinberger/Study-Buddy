@@ -1,7 +1,7 @@
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Room, Topic, Message
-from .forms import RoomForm
+from .forms import CreateRoomForm
 from django.utils import timezone
 from django.db import models
 from django.db.models import Q, Max, OuterRef, Subquery
@@ -100,13 +100,28 @@ def room(request, room_id):
 
     return render(request, 'base/room.html', context)
 
+from django.contrib import messages
+
 @login_required
 def create_room(request):
-    form = RoomForm()
+    if request.method == 'POST':
+        form = CreateRoomForm(request.POST)
+        if form.is_valid():
+            room = form.save(commit=False)  
+            room.user_created = request.user  
+            room.date_created = timezone.now()  
+            room.save()  
+            room.participants.add(request.user)
+
+            messages.success(request, 'Room created successfully!')
+            return redirect('room', room_id=room.id)
+    else:
+        form = CreateRoomForm()
 
     context = {'form': form}
 
-    return render(request, 'base/room.html', context)
+    return render(request, 'base/create_room.html', context)
+
 
 def join_room(request, room_id):
     if not request.user.is_authenticated:

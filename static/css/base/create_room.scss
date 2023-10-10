@@ -64,6 +64,18 @@ body {
     align-items: center;
     text-decoration: none;
     color: $color-gray;
+    .hello {
+      font-size: 15px;
+    }
+    .name {
+      color: $color-main;
+    }
+    .profile-image {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      border: 2px solid $color-main;
+    }
     i {
       font-size: 34px;
     }
@@ -81,14 +93,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  .signup {
+  .create-room {
     width: 500px;
     background-color: $color-dark;
     border-radius: 10px;
     .title {
+      text-transform: uppercase;
       background-color: $color-dark-light;
       margin: 0px;
-      padding: 15px calc(50% - 25px);
+      padding: 15px calc(50% - 60px);
       color: $color-light;
       border-top-right-radius: 10px;
       border-top-left-radius: 10px;
@@ -108,6 +121,15 @@ body {
         display: flex;
         flex-direction: column;
         margin-top: 0px;
+        select{
+          background-color: $color-bg;
+          border-radius: 5px;
+          padding: 5px;
+          option{
+            color: $color-light;
+            margin-bottom: 3px;
+          }
+        }
         span {
           color: $color-main;
           ul {
@@ -120,8 +142,7 @@ body {
           color: $color-light-gray;
           margin-bottom: 10px;
         }
-        input,
-        textarea {
+        input{
           padding: 10px;
           border: 1px solid $color-dark-light;
           background: transparent;
@@ -135,7 +156,7 @@ body {
         }
       }
       .submit {
-        width: 100px;
+        width: 130px;
         background-color: $color-main;
         color: $color-dark;
         padding: 10px 0px;

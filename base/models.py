@@ -8,7 +8,7 @@ class Room(models.Model):
     participants = models.ManyToManyField(User, related_name='rooms_participating')
     user_created = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms_created')
     date_created = models.DateTimeField(auto_now_add=True)
-    is_private = models.BooleanField()
+    is_private = models.BooleanField(default=False)
     key = models.CharField(max_length=8, blank=True)
 
     def key_visible(self):
