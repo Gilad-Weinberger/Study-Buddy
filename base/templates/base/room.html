@@ -34,7 +34,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="{% static 'css/base/room.css' %}" />
-    <!-- <meta http-equiv="refresh" content="1" /> -->
+    <meta http-equiv="refresh" content="1" />
   </head>
   <body>
     {% include 'base/components/navbar.html' %}
@@ -65,10 +65,21 @@
               </div>
               <p class="name">@{{ room.user_created.username }}</p>
             </a>
-            <div class="topics">
-              {% for topic in room.topics.all %}
-              <p class="topic">{{ topic }}</p>
-              {% endfor %}
+            <div class="last">
+              <div class="topics">
+                {% for topic in room.topics.all %}
+                <p class="topic">{{ topic }}</p>
+                {% endfor %}
+              </div>
+              <form
+                class="join"
+                method="post"
+                action="{% url 'join_room' room.id %}"
+              >
+                <button class="submit" type="submit">
+                  <i class="fa-solid fa-user-plus"></i> Join
+                </button>
+              </form>
             </div>
           </div>
           <div class="chat">
@@ -113,7 +124,7 @@
         <div class="top">
           <i class="fa-solid fa-user-group"></i>
           <p class="title">participants</p>
-          <p class="count">{{ room.participants.count }} Joined</p>
+          <p class="count">({{ room.participants.count }} Joined)</p>
         </div>
         <div class="bottom">
           {% for participant in room.participants.all %}

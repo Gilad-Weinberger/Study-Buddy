@@ -81,3 +81,16 @@ def room(request, room_id):
     }
 
     return render(request, 'base/room.html', context)
+
+
+def join_room(request, room_id):
+    if not request.user.is_authenticated:
+        return redirect('login')  
+
+    room = get_object_or_404(Room, pk=room_id)
+
+    if request.user in room.participants.all():
+        return redirect('room', room_id=room.id)
+
+    room.participants.add(request.user)
+    return redirect('room', room_id=room.id)

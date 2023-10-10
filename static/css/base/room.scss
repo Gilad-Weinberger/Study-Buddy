@@ -88,14 +88,14 @@ body {
   }
 }
 .main {
-  padding: 10px 160px;
+  padding: 30px 160px;
+  max-height: 700px;
   display: flex;
   justify-content: space-between;
   .room {
     min-width: 870px;
     background-color: $color-dark;
     border-radius: 10px;
-    margin: 10px 0px;
     .top {
       display: flex;
       align-items: center;
@@ -176,16 +176,35 @@ body {
             color: $color-main;
           }
         }
-        .topics {
+        .last {
           display: flex;
-          .topic {
-            color: $color-light;
-            background-color: $color-dark-light;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-right: 12px;
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+          align-items: center;
+          justify-content: space-between;
+          .topics {
+            display: flex;
+            .topic {
+              color: $color-light;
+              background-color: $color-dark-light;
+              padding: 8px 12px;
+              border-radius: 20px;
+              font-size: 14px;
+              margin-right: 12px;
+              box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            }
+          }
+          .join {
+            .submit {
+              background-color: $color-dark-light;
+              color: $color-main;
+              border: none;
+              padding: 8px 12px;
+              border-radius: 5px;
+              cursor: pointer;
+              box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+              i {
+                color: $color-main;
+              }
+            }
           }
         }
       }
@@ -269,9 +288,91 @@ body {
             color: $color-light;
             border-radius: 5px;
             margin-left: -20px;
-            &::placeholder{
+            &::placeholder {
               color: $color-light;
             }
+          }
+        }
+      }
+    }
+  }
+  .participants {
+    width: 300px;
+    .top {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      background-color: $color-dark-light;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      i {
+        margin: 0px;
+        color: $color-light;
+        font-size: 14px;
+      }
+      .title {
+        margin: 0px 10px;
+        color: $color-light;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .count {
+        margin: 0px;
+        color: $color-main;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+    .bottom {
+      $min-max-chat-height: 575px;
+      min-height: $min-max-chat-height;
+      max-height: $min-max-chat-height;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: $color-bg;
+      position: relative;
+      background-color: $color-dark;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      .participant {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 15px;
+        $image-height: 32px;
+        .profile-image {
+          display: flex;
+          position: relative;
+          max-height: $image-height;
+          margin-right: 10px;
+          img {
+            height: $image-height;
+            width: $image-height;
+            border-radius: 50%;
+            border: 2px solid $color-main;
+          }
+          .dot {
+            height: 9px;
+            width: 9px;
+            border: 2px solid $color-dark;
+            background-color: $color-gray;
+            border-radius: 50%;
+            position: absolute;
+            right: -4px;
+            bottom: -4px;
+          }
+        }
+        .info {
+          .full-name {
+            margin: 0px;
+            color: $color-gray;
+            font-size: 13.4px;
+          }
+          .username {
+            margin: 0px;
+            color: $color-main;
           }
         }
       }
@@ -294,6 +395,6 @@ body {
     // Light yellow
     color-stop(0.72, $color-dark-light),
     // Orange
-    color-stop(0.86, $color-dark-light) 
+    color-stop(0.86, $color-dark-light)
   );
 }
