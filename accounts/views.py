@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from .models import User
 from base.models import Topic, Message, Room
 from django.db.models import Count
+from django.contrib import messages
 
 
 def user_details(request, user_id):
