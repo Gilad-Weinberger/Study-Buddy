@@ -71,6 +71,7 @@
                 <p class="topic">{{ topic }}</p>
                 {% endfor %}
               </div>
+              {% if not show_text_input %}
               <form
                 class="join"
                 method="post"
@@ -81,6 +82,7 @@
                   <i class="fa-solid fa-user-plus"></i> Join
                 </button>
               </form>
+              {% endif %}
             </div>
           </div>
           <div class="chat">
@@ -128,9 +130,26 @@
           <p class="count">({{ room.participants.count }} Joined)</p>
         </div>
         <div class="bottom">
-          {% for participant in room.participants.all %}
           <a
-            class="participant {% if participant.id == room.user_created.id %} host {% endif %}"
+            class="participant host"
+            href="{% url 'accounts:user_details' room.user_created.id %}"
+          >
+            <div class="profile-image">
+              <img src="{{ room.user_created.avatar.url }}" alt="" />
+              <div
+                class="dot{% if room.user_created.id.user_connected_recently %} connected{% endif %}"
+              ></div>
+            </div>
+            <div class="info">
+              <p class="full-name">
+                {{ room.user_created.first_name }} {{ room.user_created.last_name }}
+              </p>
+              <p class="username">@{{ room.user_created.username }}</p>
+            </div>
+          </a>
+          {% for participant in participants %}
+          <a
+            class="participant"
             href="{% url 'accounts:user_details' participant.id %}"
           >
             <div class="profile-image">

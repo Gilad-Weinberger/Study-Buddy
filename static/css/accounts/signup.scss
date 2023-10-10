@@ -120,13 +120,14 @@ body {
           color: $color-light-gray;
           margin-bottom: 10px;
         }
-        input {
+        input, textarea {
           padding: 10px;
           border: 1px solid $color-dark-light;
           background: transparent;
           border-radius: 3px;
           color: $color-light;
           font-weight: 500;
+          max-width: calc(100% - 21px);
           &:focus {
             border: 1px solid $color-main;
           }

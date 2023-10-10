@@ -112,15 +112,16 @@ body {
   color: #b2bdbd;
   margin-bottom: 10px;
 }
-.main .signup form p input {
+.main .signup form p input, .main .signup form p textarea {
   padding: 10px;
   border: 1px solid #696d97;
   background: transparent;
   border-radius: 3px;
   color: #e5e5e5;
   font-weight: 500;
+  max-width: calc(100% - 21px);
 }
-.main .signup form p input:focus {
+.main .signup form p input:focus, .main .signup form p textarea:focus {
   border: 1px solid #71c6dd;
 }
 .main .signup form .submit {

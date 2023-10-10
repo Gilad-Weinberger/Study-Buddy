@@ -2,7 +2,8 @@ from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Room, Topic, Message
 from django.utils import timezone
-from django.db.models import Q  
+from django.db import models
+from django.db.models import Q, Max, OuterRef, Subquery
 
 def Home(request):
     selected_topic = request.GET.get('topic')
@@ -65,6 +66,12 @@ def room(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     messages = room.get_messages_ordered_by_datetime()
 
+    subquery = Message.objects.filter(user=OuterRef('id'), room=room).order_by('-date_sent')
+    
+    participants = room.participants.exclude(id=room.user_created.id).annotate(
+        last_message_date=Subquery(subquery.values('date_sent')[:1])
+    )
+
     if request.method == 'POST':
         message = Message.objects.create(
             room = room,
@@ -86,6 +93,7 @@ def room(request, room_id):
         'room': room,
         'messages': messages,
         'show_text_input': show_text_input,
+        'participants': participants,
     }
 
     return render(request, 'base/room.html', context)
