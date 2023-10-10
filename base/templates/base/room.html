@@ -58,7 +58,7 @@
               href="{% url 'accounts:user_details' room.user_created.id %}"
             >
               <div class="profile-image">
-                <img src="{{ room.user_created.profile_image.url }}" alt="" />
+                <img src="{{ room.user_created.avatar.url }}" alt="" />
                 <div
                   class="dot{% if room.user_connected_recently %} connected{% endif %}"
                 ></div>
@@ -93,7 +93,7 @@
                     href="{% url 'accounts:user_details' message.user.id %}"
                   >
                     <div class="profile-image">
-                      <img src="{{ message.user.profile_image.url }}" alt="" />
+                      <img src="{{ message.user.avatar.url }}" alt="" />
                       <div
                         class="dot{% if message.user_connected_recently %} connected{% endif %}"
                       ></div>
@@ -108,7 +108,7 @@
               </div>
               {% endfor %}
             </div>
-            {% if request.user.is_authenticated %}
+            {% if show_text_input %}
             <form class="write-message" action="" method="post">
               {% csrf_token %}
               <input
@@ -130,11 +130,11 @@
         <div class="bottom">
           {% for participant in room.participants.all %}
           <a
-            class="participant"
+            class="participant {% if participant.id == room.user_created.id %} host {% endif %}"
             href="{% url 'accounts:user_details' participant.id %}"
           >
             <div class="profile-image">
-              <img src="{{ participant.profile_image.url }}" alt="" />
+              <img src="{{ participant.avatar.url }}" alt="" />
               <div
                 class="dot{% if participant.user_connected_recently %} connected{% endif %}"
               ></div>

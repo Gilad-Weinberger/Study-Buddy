@@ -376,6 +376,11 @@ body {
           }
         }
       }
+      .participant.host {
+        img {
+          border: 2px solid $color-error;
+        }
+      }
     }
   }
 }

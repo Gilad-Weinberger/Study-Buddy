@@ -75,9 +75,17 @@ def room(request, room_id):
         message.save()
         return redirect('room', room_id=room.id)
 
+    show_text_input = False
+
+    if request.user.is_authenticated:
+        is_in_group = room.participants.filter(id=request.user.id).exists()
+        if is_in_group:
+            show_text_input = True
+
     context = {
         'room': room,
         'messages': messages,
+        'show_text_input': show_text_input,
     }
 
     return render(request, 'base/room.html', context)
@@ -85,7 +93,7 @@ def room(request, room_id):
 
 def join_room(request, room_id):
     if not request.user.is_authenticated:
-        return redirect('login')  
+        return redirect('accounts:login')  
 
     room = get_object_or_404(Room, pk=room_id)
 

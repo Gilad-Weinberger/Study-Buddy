@@ -361,6 +361,9 @@ body {
   margin: 0px;
   color: #71c6dd;
 }
+.main .participants .bottom .participant.host img {
+  border: 2px solid #fc4b0b;
+}
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset #2d2d39;
