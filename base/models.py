@@ -1,12 +1,12 @@
 from django.db import models
-from accounts.models import CustomUser
+from accounts.models import User
 
 class Room(models.Model):
     room_id = models.CharField(max_length=6, unique=True, blank=True)
     name = models.CharField(max_length=200)
     topics = models.ManyToManyField('Topic', related_name='rooms')
-    participants = models.ManyToManyField(CustomUser, related_name='rooms_participating')
-    user_created = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='rooms_created')
+    participants = models.ManyToManyField(User, related_name='rooms_participating')
+    user_created = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms_created')
     date_created = models.DateTimeField(auto_now_add=True)
     is_private = models.BooleanField()
     key = models.CharField(max_length=8, blank=True)
@@ -36,7 +36,7 @@ class Room(models.Model):
 class Message(models.Model):
     message_id = models.CharField(max_length=8, unique=True, blank=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='messages_written')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='messages_written')
     text = models.TextField(max_length=2000)
     date_sent = models.DateTimeField(auto_now_add=True)
 

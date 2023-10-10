@@ -1,16 +1,16 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegistrationForm, CustomUserChangeForm
+from .forms import MyUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User 
-from .models import CustomUser
+from .models import User
 from base.models import Topic, Message, Room
 from django.db.models import Count
 
 
 def user_details(request, user_id):
-    user = get_object_or_404(CustomUser, pk=user_id)  
+    user = get_object_or_404(User, pk=user_id)  
     rooms_created_by_user = user.rooms_created.all()
     all_rooms_count = Room.objects.aggregate(total_count=Count('id'))['total_count']
 
@@ -53,28 +53,17 @@ def user_details(request, user_id):
 
 
 def signup(request):
-    form = RegistrationForm()
+    form = MyUserCreationForm()
+
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            profile_image = form.cleaned_data['profile_image']
-
-            user = CustomUser.objects.create_user(
-                email=email,
-                username=username,
-                password=password,
-                first_name=first_name,
-                last_name=last_name,
-                profile_image=profile_image,
-            )
-
+            user = form.save(commit=False)
+            user.username = user.username.lower().canonicalize()
+            user.save()
             login(request, user)
             return redirect('home')
-        
-        
+        else:
+            messages.error(request, 'An error occurred during registration')
+
     return render(request, 'accounts/signup.html', {'form': form})

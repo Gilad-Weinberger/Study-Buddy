@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Room, Topic, Message
 from .forms import RoomForm
-from accounts.models import CustomUser
+from accounts.models import User
 
 def duplicate_selected_rooms(modeladmin, request, queryset):
     for room in queryset:
