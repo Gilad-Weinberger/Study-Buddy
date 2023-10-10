@@ -18,6 +18,7 @@ class User(AbstractUser):
         upload_to=profile_image_upload_path,
         default='profile_images/default.png' 
     )
+    about = models.TextField(null=True, max_length=300)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
