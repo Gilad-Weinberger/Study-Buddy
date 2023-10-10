@@ -1,9 +1,11 @@
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Room, Topic, Message
+from .forms import RoomForm
 from django.utils import timezone
 from django.db import models
 from django.db.models import Q, Max, OuterRef, Subquery
+from django.contrib.auth.decorators import login_required
 
 def Home(request):
     selected_topic = request.GET.get('topic')
@@ -98,6 +100,13 @@ def room(request, room_id):
 
     return render(request, 'base/room.html', context)
 
+@login_required
+def create_room(request):
+    form = RoomForm()
+
+    context = {'form': form}
+
+    return render(request, 'base/room.html', context)
 
 def join_room(request, room_id):
     if not request.user.is_authenticated:

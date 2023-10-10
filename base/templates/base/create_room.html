@@ -27,7 +27,7 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudyBuddy | Home</title>
+    <title>StudyBuddy | Create Room</title>
     <link
       rel="shortcut icon"
       href="{% static 'images/logo.png' %}"
@@ -41,22 +41,5 @@
     <div class="main">
       
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const previousUrl = document.referrer;
-        const backButton = document.querySelector(".fa-arrow-left");
-
-        backButton.onclick = function () {
-          if (previousUrl && previousUrl.startsWith(window.location.origin)) {
-            history.back();
-          } else {
-            window.location.href = "{% url 'home' %}";
-          }
-        };
-
-        var objDiv = document.querySelector(".chat");
-        objDiv.scrollTop = objDiv.scrollHeight;
-      });
-    </script>
   </body>
 </html>

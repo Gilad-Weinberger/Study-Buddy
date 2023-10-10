@@ -12,3 +12,9 @@ class RoomForm(forms.ModelForm):
         queryset=User.objects.all(),
         widget=FilteredSelectMultiple('User', is_stacked=False),
     )
+
+class RoomForm(forms.ModelForm):
+    class Meta:
+        model = Room
+        fields = '__all__'
+        exclude = ['host', 'participants']
