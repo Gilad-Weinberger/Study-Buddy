@@ -34,7 +34,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="{% static 'css/base/room.css' %}" />
-    <meta http-equiv="refresh" content="1" />
+    <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
     {% include 'base/components/navbar.html' %}
@@ -76,6 +76,7 @@
                 method="post"
                 action="{% url 'join_room' room.id %}"
               >
+                {% csrf_token %}
                 <button class="submit" type="submit">
                   <i class="fa-solid fa-user-plus"></i> Join
                 </button>
