@@ -15,7 +15,7 @@
   </form>
   {% if user.is_authenticated %}
   <a class="login" href="{% url 'accounts:user_details' user.id %}">
-    <img class="profile-image" src="{{ user.profile_image.url }}" alt="" />
+    <img class="profile-image" src="{{ user.avatar.url }}" alt="" />
     <p class="text">
       <span class="hello">Hello,</span> <br />
       <span class="name">@{{ user.username }}</span>

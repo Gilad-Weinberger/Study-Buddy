@@ -7,7 +7,7 @@
     <div class="item">
       <a class="profile" href="{% url 'accounts:user_details' message.user.id %}">
         <div class="profile-image">
-          <img src="{{ message.user.profile_image.url }}" alt="" />
+          <img src="{{ message.user.avatar.url }}" alt="" />
           <div class="dot{% if message.user_connected_recently %} connected{% endif %}"></div>
         </div>
         <div class="info">

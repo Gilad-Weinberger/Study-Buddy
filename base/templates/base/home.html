@@ -56,7 +56,7 @@
             <div class="top">
               <a class="left" href="{% url 'accounts:user_details' room.user_created.id %}">
                 <div class="profile-image">
-                  <img src="{{ room.user_created.profile_image.url }}" alt="" />
+                  <img src="{{ room.user_created.avatar.url }}" alt="" />
                   <div
                     class="dot{% if room.user_connected_recently %} connected{% endif %}"
                   ></div>
