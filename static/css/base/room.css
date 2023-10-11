@@ -206,6 +206,24 @@ body {
   background-color: #2d2d39;
   position: relative;
 }
+.main .room .bottom .chat .messages .new-day {
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  margin-top: 35px;
+  width: calc(100% - 4px);
+}
+.main .room .bottom .chat .messages .new-day .new-day-date {
+  text-align: center;
+  padding: 5px;
+  background-color: #2d2d39;
+  margin-top: -22px;
+  width: 150px;
+  color: #e5e5e5;
+  font-size: 15px;
+}
 .main .room .bottom .chat .messages .message {
   border-left: 2px solid #3f4156;
   padding: 0px 15px;

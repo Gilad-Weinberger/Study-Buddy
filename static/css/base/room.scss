@@ -217,6 +217,24 @@ body {
         background-color: $color-bg;
         position: relative;
         .messages {
+          .new-day {
+            border-top: 1px solid $color-light;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            margin-top: 35px;
+            width: calc(100% - 4px);
+            .new-day-date {
+              text-align: center;
+              padding: 5px;
+              background-color: $color-bg;
+              margin-top: -22px;
+              width: 150px;
+              color: $color-light;
+              font-size: 15px;
+            }
+          }
           .message {
             border-left: 2px solid $color-dark;
             padding: 0px 15px;

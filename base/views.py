@@ -69,6 +69,13 @@ def room(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     messages = room.get_messages_ordered_by_datetime()
 
+    messages_list = list(messages)
+    previous_message_date = None  
+    for message in messages_list:
+        message_date = message.date_sent.date()
+        message.new_day = message_date != previous_message_date   
+        previous_message_date = message_date
+
     subquery = Message.objects.filter(user=OuterRef('id'), room=room).order_by('-date_sent')
     
     participants = room.participants.exclude(id=room.user_created.id).annotate(
@@ -77,10 +84,10 @@ def room(request, room_id):
 
     if request.method == 'POST':
         message = Message.objects.create(
-            room = room,
-            user = request.user,
-            text = request.POST.get('text'),
-            date_sent = timezone.now()
+            room=room,
+            user=request.user,
+            text=request.POST.get('text'),
+            date_sent=timezone.now()
         )
         message.save()
         return redirect('room', room_id=room.id)
@@ -91,6 +98,12 @@ def room(request, room_id):
         is_in_group = room.participants.filter(id=request.user.id).exists()
         if is_in_group:
             show_text_input = True
+
+    participants_list = list(participants)
+    for participant in participants_list:
+        participant.full_name = f"{participant.first_name} {participant.last_name}"
+
+    room.user_created.full_name = f"{room.user_created.first_name} {room.user_created.last_name}"
 
     context = {
         'room': room,

@@ -87,7 +87,13 @@
           </div>
           <div class="chat">
             <div class="messages">
-              {% for message in messages %}
+              {% for message in messages %} {% if message.new_day %}
+              <div class="new-day">
+                <p class="new-day-date">
+                  {{ message.date_sent|date:"F j, Y" }}
+                </p>
+              </div>
+              {% endif %}
               <div class="message">
                 <div class="details">
                   <a
@@ -141,9 +147,7 @@
               ></div>
             </div>
             <div class="info">
-              <p class="full-name">
-                {{ room.user_created.first_name }} {{ room.user_created.last_name }}
-              </p>
+              <p class="full-name">{{ room.user_created.full_name }}</p>
               <p class="username">@{{ room.user_created.username }}</p>
             </div>
           </a>
@@ -159,9 +163,7 @@
               ></div>
             </div>
             <div class="info">
-              <p class="full-name">
-                {{ participant.first_name }} {{ participant.last_name }}
-              </p>
+              <p class="full-name">{{ participant.full_name }}</p>
               <p class="username">@{{ participant.username }}</p>
             </div>
           </a>
