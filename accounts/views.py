@@ -57,9 +57,9 @@ def user_details(request, user_id):
     return render(request, 'accounts/user_details.html', context)
 
 
-def edit_details(request):
-    if request.user.is_authenticated:
-        user = get_object_or_404(User, pk=request.user.id)
+def edit_details(request, user_id):
+    if request.user.id == user_id:
+        user = get_object_or_404(User, pk=user_id)
     else:
         return redirect('home')
 

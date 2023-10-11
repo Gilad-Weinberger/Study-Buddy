@@ -42,7 +42,7 @@
       <div class="edit-details">
         <p class="title">edit user details</p>
         <p class="find">Find your study partner</p>
-        <form method="POST" action="{% url 'accounts:signup' %}">
+        <form method="POST" action="{% url 'accounts:edit_details' user.id %}">
           {% csrf_token %} {{ form.as_p }}
           <button class="submit" type="submit">
             <i class="fa-solid fa-check"></i> Save Details
