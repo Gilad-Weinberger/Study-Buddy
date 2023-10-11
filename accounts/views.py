@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyUserCreationForm
+from .forms import MyUserCreationForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User 
@@ -38,7 +38,11 @@ def user_details(request, user_id):
     if search_query:
         rooms = rooms.filter(Q(name__icontains=search_query) | Q(user_created__first_name__icontains=search_query))
 
-    is_authenticated_user = request.user == user if request.user.is_authenticated else False
+    look_at_his_user = False
+
+    if request.user.is_authenticated:
+        if request.user.id == user.id:
+            look_at_his_user = True 
 
     context = {
         'user': user,
@@ -47,10 +51,32 @@ def user_details(request, user_id):
         'all_topics': all_topics,
         'pop_topics': pop_topics,
         'recent_messages': recent_messages,
-        'is_authenticated_user': is_authenticated_user,
+        'look_at_his_user': look_at_his_user,
     }
 
     return render(request, 'accounts/user_details.html', context)
+
+
+def edit_details(request):
+    if request.user.is_authenticated:
+        user = get_object_or_404(User, pk=request.user.id)
+    else:
+        return redirect('home')
+
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('user_details', user_id=user.id)
+    else:
+        form = UserForm(instance=user)
+
+    context = {
+        'user': user,
+        'form': form,
+    }
+
+    return render(request, 'accounts/edit_user_details.html', context)
 
 
 def signup(request):

@@ -84,47 +84,56 @@ body {
   align-items: center;
   justify-content: center;
 }
-.main .signup {
+.main .edit-details {
   width: 500px;
   background-color: #3f4156;
   border-radius: 10px;
 }
-.main .signup .title {
+.main .edit-details .title {
+  text-transform: uppercase;
   background-color: #696d97;
   margin: 0px;
-  padding: 15px calc(50% - 25px);
+  padding: 15px calc(50% - 70px);
   color: #e5e5e5;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.main .signup .find {
+.main .edit-details .find {
   margin: 15px 0px 10px 0px;
   padding: 15px calc(50% - 83px);
   color: #e5e5e5;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.main .signup form {
+.main .edit-details form {
   display: flex;
   flex-direction: column;
   padding: 0px 30px 20px 30px;
 }
-.main .signup form p {
+.main .edit-details form p {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
 }
-.main .signup form p span {
+.main .edit-details form p a {
+  color: #e5e5e5;
+  margin-bottom: 15px;
+}
+.main .edit-details form p span {
   color: #71c6dd;
 }
-.main .signup form p span ul li {
+.main .edit-details form p span ul li {
   color: #71c6dd;
 }
-.main .signup form p label {
+.main .edit-details form p br {
+  display: none;
+}
+.main .edit-details form p label {
   color: #b2bdbd;
   margin-bottom: 10px;
 }
-.main .signup form p input, .main .signup form p textarea {
+.main .edit-details form p input,
+.main .edit-details form p textarea {
   padding: 10px;
   border: 1px solid #696d97;
   background: transparent;
@@ -133,11 +142,12 @@ body {
   font-weight: 500;
   max-width: calc(100% - 21px);
 }
-.main .signup form p input:focus, .main .signup form p textarea:focus {
+.main .edit-details form p input:focus,
+.main .edit-details form p textarea:focus {
   border: 1px solid #71c6dd;
 }
-.main .signup form .submit {
-  width: 100px;
+.main .edit-details form .submit {
+  width: 130px;
   background-color: #71c6dd;
   color: #3f4156;
   padding: 10px 0px;
@@ -147,15 +157,15 @@ body {
   transition: all ease-in-out 0.3s;
   cursor: pointer;
 }
-.main .signup form .submit i {
+.main .edit-details form .submit i {
   margin-right: 8px;
 }
-.main .signup .not {
+.main .edit-details .not {
   text-align: center;
   color: #e5e5e5;
   margin-bottom: 30px;
 }
-.main .signup .not a {
+.main .edit-details .not a {
   text-decoration: none;
   color: #71c6dd;
-}/*# sourceMappingURL=signup.css.map */
+}/*# sourceMappingURL=edit_user_details.css.map */

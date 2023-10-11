@@ -53,12 +53,16 @@
           </div>
           <p class="full-name">{{ user.first_name }} {{ user.last_name }}</p>
           <p class="username">@{{ user.username }}</p>
-          {% if user.is_authenticated %}
+          {% if request.user.is_authenticated and request.user.id == user.id %}
           <div class="changes">
-            <a href="{% url 'accounts:logout' %}" class="btn btn-logout">
-              Logout
-            </a>
-            <a href="" class="btn btn-edit-profile"> Edit Profile </a>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-logout"
+              >Logout</a
+            >
+            <a
+              href="{% url 'accounts:edit_details' user.id %}"
+              class="btn btn-edit-profile"
+              >Edit Profile</a
+            >
           </div>
           {% endif %}
         </div>
@@ -69,7 +73,10 @@
           {% for room in rooms_created_by_user %}
           <div class="item">
             <div class="top">
-              <a class="left" href="{% url 'accounts:user_details' room.user_created.id %}">
+              <a
+                class="left"
+                href="{% url 'accounts:user_details' room.user_created.id %}"
+              >
                 <div class="profile-image">
                   <img src="{{ room.user_created.avatar.url }}" alt="" />
                   <div
@@ -82,7 +89,9 @@
                 {{ room.date_created|timesince }} ago
               </p>
             </div>
-            <a href="{% url 'room' room.id %}" class="room-link"><p class="room-name">{{ room.name }}</p></a>
+            <a href="{% url 'room' room.id %}" class="room-link"
+              ><p class="room-name">{{ room.name }}</p></a
+            >
             <div class="bottom">
               <div class="left">
                 <i class="fa-light fa-user-group"></i>

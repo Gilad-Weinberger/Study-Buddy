@@ -31,9 +31,6 @@ body {
 .navbar form {
   position: relative;
 }
-.navbar form ul li {
-  color: #e5e5e5;
-}
 .navbar form i {
   color: #8b8b8b;
   position: absolute;
@@ -57,6 +54,18 @@ body {
   align-items: center;
   text-decoration: none;
   color: #8b8b8b;
+}
+.navbar .login .hello {
+  font-size: 15px;
+}
+.navbar .login .name {
+  color: #71c6dd;
+}
+.navbar .login .profile-image {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 2px solid #71c6dd;
 }
 .navbar .login i {
   font-size: 34px;

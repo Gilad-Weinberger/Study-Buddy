@@ -93,14 +93,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  .login {
+  .edit-details {
     width: 500px;
     background-color: $color-dark;
     border-radius: 10px;
     .title {
+      text-transform: uppercase;
       background-color: $color-dark-light;
       margin: 0px;
-      padding: 15px calc(50% - 20px);
+      padding: 15px calc(50% - 70px);
       color: $color-light;
       border-top-right-radius: 10px;
       border-top-left-radius: 10px;
@@ -120,24 +121,41 @@ body {
         display: flex;
         flex-direction: column;
         margin-top: 0px;
+        a{
+          color: $color-light;
+          margin-bottom: 15px;
+        }
+        span {
+          color: $color-main;
+          ul {
+            li {
+              color: $color-main;
+            }
+          }
+        }
+        br{
+          display: none;
+        }
         label {
           color: $color-light-gray;
           margin-bottom: 10px;
         }
-        input {
+        input,
+        textarea {
           padding: 10px;
           border: 1px solid $color-dark-light;
           background: transparent;
           border-radius: 3px;
           color: $color-light;
           font-weight: 500;
+          max-width: calc(100% - 21px);
           &:focus {
             border: 1px solid $color-main;
           }
         }
       }
       .submit {
-        width: 100px;
+        width: 130px;
         background-color: $color-main;
         color: $color-dark;
         padding: 10px 0px;
@@ -151,11 +169,11 @@ body {
         }
       }
     }
-    .not{
+    .not {
       text-align: center;
       color: $color-light;
       margin-bottom: 30px;
-      a{
+      a {
         text-decoration: none;
         color: $color-main;
       }
