@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.db import models
 from django.db.models import Q, Max, OuterRef, Subquery
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def Home(request):
     selected_topic = request.GET.get('topic')
@@ -100,9 +101,7 @@ def room(request, room_id):
 
     return render(request, 'base/room.html', context)
 
-from django.contrib import messages
 
-@login_required
 def create_room(request):
     if request.method == 'POST':
         form = CreateRoomForm(request.POST)

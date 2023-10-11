@@ -46,9 +46,15 @@
             <p class="title">STUDY ROOMS</p>
             <p class="rooms-available">{{ rooms.count }} Rooms available</p>
           </div>
+          {% if user.is_authenticated %}
           <a class="create" href="{% url 'create_room' %}">
             <i class="fa-solid fa-plus"></i> Create Rooms
           </a>
+          {% else %}
+          <a class="create" href="{% url 'accounts:login' %}">
+            <i class="fa-solid fa-plus"></i> Create Rooms
+          </a>
+          {% endif %}
         </div>
         <div class="items">
           {% for room in rooms %}
