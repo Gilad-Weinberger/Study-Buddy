@@ -263,6 +263,7 @@ body {
   width: 300px;
   border-radius: 5px;
   background-color: #3f4156;
+  max-height: 620px;
 }
 .main .recent_activities .title {
   color: #e5e5e5;
@@ -275,7 +276,6 @@ body {
 }
 .main .recent_activities .items {
   padding: 15px;
-  height: 100%;
 }
 .main .recent_activities .items .item {
   padding: 15px;

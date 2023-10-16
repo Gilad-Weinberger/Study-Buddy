@@ -276,6 +276,7 @@ body {
     width: 300px;
     border-radius: $recent-border-radius;
     background-color: $color-dark;
+    max-height: 620px;
     .title {
       color: $color-light;
       background-color: $color-dark-light;
@@ -287,7 +288,6 @@ body {
     }
     .items {
       padding: 15px;
-      height: 100%;
       .item {
         padding: 15px;
         padding-bottom: 5px;
