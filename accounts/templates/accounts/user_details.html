@@ -46,12 +46,12 @@
       <div class="rooms">
         <div class="top">
           <div class="profile-image">
-            <img src="{{ user.avatar.name }}" alt="" />
+            <img src="{{ user.avatar.url }}" alt="" />
             <div
               class="dot{% if message.user_connected_recently %} connected{% endif %}"
             ></div>
           </div>
-          <p class="full-name">{{ user.avatar.name }} {{ user.last_name }}</p>
+          <p class="full-name">{{ user.avatar.url }} {{ user.last_name }}</p>
           <p class="username">@{{ user.username }}</p>
           {% if request.user.is_authenticated and request.user.id == user.id %}
           <div class="changes">

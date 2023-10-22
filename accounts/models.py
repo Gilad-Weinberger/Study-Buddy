@@ -14,7 +14,6 @@ class User(AbstractUser):
     avatar = models.ImageField(
         null=True,
         blank=True,
-        upload_to='profile_images',
         storage=grid_fs_storage
     )
     about = models.TextField(null=True, max_length=300)
