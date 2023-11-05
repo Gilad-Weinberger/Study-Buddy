@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import MyUserCreationForm, UserForm
+from .forms import RegistrationForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User 
@@ -8,7 +8,6 @@ from .models import User
 from base.models import Topic, Message, Room
 from django.db.models import Count
 from django.contrib import messages
-
 
 def user_details(request, user_id):
     user = get_object_or_404(User, pk=user_id)  
@@ -45,7 +44,7 @@ def user_details(request, user_id):
             look_at_his_user = True 
 
     context = {
-        'user': user,
+        'user_page': user,
         'rooms_created_by_user': rooms_created_by_user,
         'all_rooms_count': all_rooms_count,
         'all_topics': all_topics,
@@ -56,13 +55,8 @@ def user_details(request, user_id):
 
     return render(request, 'accounts/user_details.html', context)
 
-
+@login_required
 def edit_details(request, user_id):
-    if request.user.id == user_id:
-        user = get_object_or_404(User, pk=user_id)
-    else:
-        return redirect('home')
-
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
@@ -80,17 +74,13 @@ def edit_details(request, user_id):
 
 
 def signup(request):
-    form = MyUserCreationForm()
-
     if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
+        form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower().capitalize()
-            user.save()
+            user = form.save()
             login(request, user)
             return redirect('home')
-        else:
-            messages.error(request, 'An error occurred during registration')
+    else:
+        form = RegistrationForm()
 
     return render(request, 'accounts/signup.html', {'form': form})

@@ -16,8 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_URL = 'http://127.0.0.1:8000/'
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -80,8 +78,8 @@ WSGI_APPLICATION = 'study_buddy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'Study_Buddy_db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -121,9 +119,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-UPLOADED_FILES_USE_URL = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -139,6 +139,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = 'login'  # URL name for the login view
-LOGOUT_URL = 'logout'  # URL name for the logout view
+LOGOUT_URL = 'home'  # URL name for the logout view
 LOGIN_REDIRECT_URL = 'home'  # URL where the user will be redirected after login
 LOGOUT_REDIRECT_URL = 'home' # URL where the user will be redirected after logout

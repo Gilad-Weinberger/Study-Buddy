@@ -42,7 +42,11 @@
       <div class="signup">
         <p class="title">SIGNUP</p>
         <p class="find">Find your study partner</p>
-        <form method="POST" action="{% url 'accounts:signup' %}">
+        <form
+          method="POST"
+          action="{% url 'accounts:signup' %}"
+          enctype="multipart/form-data"
+        >
           {% csrf_token %} {{ form.as_p }}
           <button class="submit" type="submit">
             <i class="fa-regular fa-user-plus"></i> Register

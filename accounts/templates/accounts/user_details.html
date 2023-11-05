@@ -46,20 +46,20 @@
       <div class="rooms">
         <div class="top">
           <div class="profile-image">
-            <img src="{{ user.avatar.url }}" alt="" />
+            <img src="{{ user_page.avatar.url }}" alt="" />
             <div
               class="dot{% if message.user_connected_recently %} connected{% endif %}"
             ></div>
           </div>
-          <p class="full-name">{{ user.avatar.url }} {{ user.last_name }}</p>
-          <p class="username">@{{ user.username }}</p>
-          {% if request.user.is_authenticated and request.user.id == user.id %}
+          <p class="full-name">{{ user_page.full_name }}</p>
+          <p class="username">@{{ user_page.username }}</p>
+          {% if request.user.is_authenticated and request.user.id == user_page.id %}
           <div class="changes">
             <a href="{% url 'accounts:logout' %}" class="btn btn-logout"
               >Logout</a
             >
             <a
-              href="{% url 'accounts:edit_details' user.id %}"
+              href="{% url 'accounts:edit_details' user_page.id %}"
               class="btn btn-edit-profile"
               >Edit Profile</a
             >
@@ -67,8 +67,8 @@
           {% endif %}
         </div>
         <p class="about-title">about</p>
-        <p class="about">{{ user.about }}</p>
-        <p class="room-title">STUDY ROOMS HOSTED BY @{{ user.username }}</p>
+        <p class="about">{{ user_page.about }}</p>
+        <p class="room-title">STUDY ROOMS HOSTED BY @{{ user_page.username }}</p>
         <div class="items">
           {% for room in rooms_created_by_user %}
           <div class="item">
