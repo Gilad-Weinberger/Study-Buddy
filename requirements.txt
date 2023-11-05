@@ -22,7 +22,7 @@ opencv-python-headless==4.8.1.78
 packaging==23.2
 pandas==2.1.1
 Pillow==10.0.0
-psycopg2-binary==2.9.9
+psycopg2-binary==2.9.1
 Pygments==2.16.1
 pymongo==3.12.3
 PyPDF2==3.0.1
