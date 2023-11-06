@@ -53,11 +53,11 @@ body {
         display: flex;
         flex-direction: column;
         margin-top: 0px;
-        select{
+        select {
           background-color: $color-bg;
           border-radius: 5px;
           padding: 5px;
-          option{
+          option {
             color: $color-light;
             margin-bottom: 3px;
           }
@@ -74,7 +74,7 @@ body {
           color: $color-light-gray;
           margin-bottom: 10px;
         }
-        input{
+        input {
           padding: 10px;
           border: 1px solid $color-dark-light;
           background: transparent;
@@ -110,6 +110,14 @@ body {
         text-decoration: none;
         color: $color-main;
       }
+    }
+  }
+}
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+    .create-room{
+      width: calc(100vw - 120px);
     }
   }
 }

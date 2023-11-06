@@ -94,3 +94,11 @@ body {
     }
   }
 }
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+    .login{
+      width: calc(100vw - 120px);
+    }
+  }
+}

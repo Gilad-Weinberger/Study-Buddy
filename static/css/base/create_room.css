@@ -99,4 +99,13 @@ body {
 .main .create-room .not a {
   text-decoration: none;
   color: #71c6dd;
+}
+
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+  }
+  .main .create-room {
+    width: calc(100vw - 120px);
+  }
 }/*# sourceMappingURL=create_room.css.map */

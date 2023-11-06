@@ -353,3 +353,23 @@ body {
     color-stop(0.86, $color-dark-light)
   );
 }
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 30px 40px 30px;
+    max-height: 1500px;
+    flex-direction: column;
+    align-items: center;
+    .room {
+      min-width: calc(100vw - 60px);
+      margin-bottom: 30px;
+    }
+    .participants {
+      width: calc(100vw - 60px);
+      .bottom {
+        $min-max-chat-height: 350px;
+        min-height: $min-max-chat-height;
+        max-height: $min-max-chat-height;
+      }
+    }
+  }
+}

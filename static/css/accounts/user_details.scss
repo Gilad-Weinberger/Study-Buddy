@@ -185,3 +185,14 @@ body {
     }
   }
 }
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    .rooms {
+      margin-top: 25px;
+      max-width: calc(100vw - 60px);
+    }
+  }
+}

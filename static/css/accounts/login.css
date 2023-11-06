@@ -82,4 +82,13 @@ body {
 .main .login .not a {
   text-decoration: none;
   color: #71c6dd;
+}
+
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+  }
+  .main .login {
+    width: calc(100vw - 120px);
+  }
 }/*# sourceMappingURL=login.css.map */

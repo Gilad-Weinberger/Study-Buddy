@@ -171,4 +171,16 @@ body {
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .main .rooms {
+    margin-top: 25px;
+    max-width: calc(100vw - 60px);
+  }
 }/*# sourceMappingURL=user_details.css.map */

@@ -97,4 +97,11 @@ body {
 }
 .main .all-topics .bottom .topics-form .spesific {
   border-top: 1px solid #51546e;
+}
+
+@media (max-width: 640px) {
+  .main .all-topics {
+    min-width: calc(100vw - 120px);
+    margin: 110px 0px;
+  }
 }/*# sourceMappingURL=all_topics.css.map */

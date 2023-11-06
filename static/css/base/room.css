@@ -325,4 +325,24 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #696d97), color-stop(0.72, #696d97), color-stop(0.86, #696d97));
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 30px 40px 30px;
+    max-height: 1500px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main .room {
+    min-width: calc(100vw - 60px);
+    margin-bottom: 30px;
+  }
+  .main .participants {
+    width: calc(100vw - 60px);
+  }
+  .main .participants .bottom {
+    min-height: 350px;
+    max-height: 350px;
+  }
 }/*# sourceMappingURL=room.css.map */

@@ -55,7 +55,7 @@
   border-bottom: 1px solid #71c6dd;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 640px) {
   .topics {
     width: calc(100vw - 60px);
     display: flex;
