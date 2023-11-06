@@ -114,7 +114,7 @@ def room(request, room_id):
 
     return render(request, 'base/room.html', context)
 
-
+@login_required
 def create_room(request):
     if request.method == 'POST':
         form = CreateRoomForm(request.POST)
@@ -134,11 +134,8 @@ def create_room(request):
 
     return render(request, 'base/create_room.html', context)
 
-
+@login_required
 def join_room(request, room_id):
-    if not request.user.is_authenticated:
-        return redirect('accounts:login')  
-
     room = get_object_or_404(Room, pk=room_id)
 
     if request.user in room.participants.all():
