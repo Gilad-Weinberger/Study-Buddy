@@ -65,4 +65,31 @@
   margin: 0px;
   margin-left: 8px;
   font-size: 17px;
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 20px 30px;
+    justify-content: space-evenly;
+  }
+  .navbar .logo {
+    margin: 0px;
+  }
+  .navbar .logo .text {
+    display: none;
+  }
+  .navbar form {
+    margin: 0px 20px;
+  }
+  .navbar form .search {
+    width: 55vw;
+  }
+  .navbar .login {
+    margin-left: 0px;
+  }
+  .navbar .login .hello,
+  .navbar .login .name,
+  .navbar .login .text {
+    display: none;
+  }
 }/*# sourceMappingURL=navbar.css.map */

@@ -81,4 +81,10 @@
 }
 .recent_activities .items .item:nth-last-child(-1) {
   margin-bottom: 0px;
+}
+
+@media (max-width: 500px) {
+  .recent_activities {
+    display: none;
+  }
 }/*# sourceMappingURL=recent_activities.css.map */

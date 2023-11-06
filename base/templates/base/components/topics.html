@@ -7,8 +7,11 @@
   </head>
   <body>
     <div class="topics">
-      <p class="title">BROWSE TOPICS</p>
-      <form method="GET" action="{% url 'home' %}">
+      <div class="top">
+        <p class="title">BROWSE TOPICS</p>
+        <i class="fa-solid fa-chevron-up toggle"></i>
+      </div>
+      <form class="form" method="GET" action="{% url 'home' %}">
         <div class="item">
           <input type="submit" class="name" name="topic" value="All" />
           <p class="count">{{ all_rooms_count }}</p>
@@ -31,5 +34,15 @@
       ></a>
       {% endif %}
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".toggle").click(function () {
+          $(this).toggleClass("fa-chevron-up fa-chevron-down");
+          $(".more").toggleClass("more-show");
+          $(".form").toggleClass("form-show");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -78,3 +78,29 @@ $color-error: #fc4b0b;
     }
   }
 }
+@media (max-width: 500px) {
+  .navbar {
+    padding: 20px 30px;
+    justify-content: space-evenly;
+    .logo {
+      margin: 0px;
+      .text {
+        display: none;
+      }
+    }
+    form {
+      margin: 0px 20px;
+      .search {
+        width: 55vw;
+      }
+    }
+    .login {
+      margin-left: 0px;
+      .hello,
+      .name,
+      .text {
+        display: none;
+      }
+    }
+  }
+}

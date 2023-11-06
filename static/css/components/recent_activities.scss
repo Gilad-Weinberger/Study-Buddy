@@ -98,3 +98,8 @@ $recent-border-radius: 5px;
     }
   }
 }
+@media (max-width: 500px) {
+  .recent_activities {
+    display: none;
+  }
+}
