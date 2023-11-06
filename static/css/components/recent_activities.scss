@@ -1,0 +1,100 @@
+$color-main: #71c6dd;
+$color-main-light: #e1f6fb;
+$color-dark: #3f4156;
+$color-dark-medium: #51546e;
+$color-dark-light: #696d97;
+$color-light: #e5e5e5;
+$color-gray: #8b8b8b;
+$color-light-gray: #b2bdbd;
+$color-bg: #2d2d39;
+$color-success: #5dd693;
+$color-error: #fc4b0b;
+
+$recent-border-radius: 5px;
+.recent_activities {
+  width: 300px;
+  border-radius: $recent-border-radius;
+  background-color: $color-dark;
+  max-height: 620px;
+  .title {
+    color: $color-light;
+    background-color: $color-dark-light;
+    padding: 10px 15px;
+    margin: 0px;
+    border-top-right-radius: $recent-border-radius;
+    border-top-left-radius: $recent-border-radius;
+    letter-spacing: 0.8px;
+  }
+  .items {
+    padding: 15px;
+    .item {
+      padding: 15px;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid $color-dark-medium;
+      .profile {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 5px;
+        $image-height: 32px;
+        .profile-image {
+          display: flex;
+          position: relative;
+          max-height: $image-height;
+          margin-right: 10px;
+          img {
+            height: $image-height;
+            width: $image-height;
+            border-radius: 50%;
+            border: 2px solid $color-main;
+          }
+          .dot {
+            height: 9px;
+            width: 9px;
+            border: 2px solid $color-dark;
+            background-color: $color-gray;
+            border-radius: 50%;
+            position: absolute;
+            right: -4px;
+            bottom: -4px;
+          }
+        }
+        .info {
+          .name {
+            margin: 0px;
+            color: $color-main;
+          }
+          .time-past-sent {
+            margin: 0px;
+            color: $color-gray;
+            font-size: 13.4px;
+          }
+        }
+      }
+      .reply,
+      .room {
+        margin: 0px;
+        color: $color-light-gray;
+        margin-left: 40px;
+        font-size: 14px;
+      }
+      .room {
+        color: $color-main;
+        text-decoration: none;
+      }
+      .message {
+        width: 226px;
+        max-width: 226px;
+        background-color: $color-bg;
+        color: white;
+        padding: 8px;
+        font-size: 14px;
+      }
+      &:nth-last-child(-1) {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

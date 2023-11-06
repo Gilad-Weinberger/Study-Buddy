@@ -1,0 +1,80 @@
+$color-main: #71c6dd;
+$color-main-light: #e1f6fb;
+$color-dark: #3f4156;
+$color-dark-medium: #51546e;
+$color-dark-light: #696d97;
+$color-light: #e5e5e5;
+$color-gray: #8b8b8b;
+$color-light-gray: #b2bdbd;
+$color-bg: #2d2d39;
+$color-success: #5dd693;
+$color-error: #fc4b0b;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: $color-dark;
+  padding: 10px 160px 20px 160px;
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    text-decoration: none;
+    img {
+      height: 30px;
+    }
+    .text {
+      margin-left: 15px;
+      font-size: 20px;
+      color: $color-light;
+      font-weight: 700;
+    }
+  }
+  form {
+    position: relative;
+    i {
+      color: $color-gray;
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .search {
+      background-color: #50556e;
+      color: white;
+      border: none;
+      padding: 14px 45px;
+      font-size: 15px;
+      width: 360px;
+      border-radius: 5px;
+    }
+  }
+  .login {
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $color-gray;
+    .hello {
+      font-size: 15px;
+    }
+    .name {
+      color: $color-main;
+    }
+    .profile-image {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      border: 2px solid $color-main;
+    }
+    i {
+      font-size: 34px;
+    }
+    .text {
+      margin: 0px;
+      margin-left: 8px;
+      font-size: 17px;
+    }
+  }
+}

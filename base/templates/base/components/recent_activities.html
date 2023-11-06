@@ -1,24 +1,44 @@
 {% load static %}
 
-<div class="recent_activities">
-  <p class="title">RECENT ACTIVITIES</p>
-  <div class="items">
-    {% for message in recent_messages %}
-    <div class="item">
-      <a class="profile" href="{% url 'accounts:user_details' message.user.id %}">
-        <div class="profile-image">
-          <img src="{{ message.user.avatar.url }}" alt="" />
-          <div class="dot{% if message.user_connected_recently %} connected{% endif %}"></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/componentes/recent_activities.css' %}"
+    />
+  </head>
+  <body>
+    <div class="recent_activities">
+      <p class="title">RECENT ACTIVITIES</p>
+      <div class="items">
+        {% for message in recent_messages %}
+        <div class="item">
+          <a
+            class="profile"
+            href="{% url 'accounts:user_details' message.user.id %}"
+          >
+            <div class="profile-image">
+              <img src="{{ message.user.avatar.url }}" alt="" />
+              <div
+                class="dot{% if message.user_connected_recently %} connected{% endif %}"
+              ></div>
+            </div>
+            <div class="info">
+              <p class="name">@{{ message.user.username }}</p>
+              <p class="time-past-sent">
+                {{ message.date_sent|timesince }} ago
+              </p>
+            </div>
+          </a>
+          <p class="reply">in the room:</p>
+          <a href="{% url 'room' message.room.id %}" class="room"
+            >"{{ message.room.name }}"</a
+          >
+          <p class="message">{{ message.text }}</p>
         </div>
-        <div class="info">
-          <p class="name">@{{ message.user.username }}</p>
-          <p class="time-past-sent">{{ message.date_sent|timesince }} ago</p>
-        </div>
-      </a>
-      <p class="reply">in the room:</p>
-      <a href="{% url 'room' message.room.id %}" class="room">"{{ message.room.name }}"</a>
-      <p class="message">{{ message.text }}</p>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
-  </div>
-</div>
+  </body>
+</html>

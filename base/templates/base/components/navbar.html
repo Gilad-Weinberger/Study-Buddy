@@ -1,46 +1,53 @@
 {% load static %}
-<div class="navbar">
-  <a href="{% url 'home' %}" class="logo">
-    <img src="{% static 'images/logo.png' %}" alt="" class="logo-img" />
-    <h1 class="text">StudyBuddy</h1>
-  </a>
-  <form method="GET" action="{% url 'home' %}">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input
-      class="search"
-      type="search"
-      name="search"
-      placeholder="Search for posts"
-    />
-  </form>
-  {% if user.is_authenticated %}
-  <a class="login" href="{% url 'accounts:user_details' user.id %}">
-    <img class="profile-image" src="{{ user.avatar.url }}" alt="" />
-    <p class="text">
-      <span class="hello">Hello,</span> <br />
-      <span class="name">@{{ user.username }}</span>
-    </p>
-  </a>
-  {% else %}
-  <a class="login" href="{% url 'accounts:login' %}">
-    <i class="fa-solid fa-circle-user"></i>
-    <p class="text">Login</p>
-  </a>
-  {% endif %}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'css/components/navbar.css' %}" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="{% url 'home' %}" class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="" class="logo-img" />
+        <h1 class="text">StudyBuddy</h1>
+      </a>
+      <form method="GET" action="{% url 'home' %}">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          class="search"
+          type="search"
+          name="search"
+          placeholder="Search for posts"
+        />
+      </form>
+      {% if user.is_authenticated %}
+      <a class="login" href="{% url 'accounts:user_details' user.id %}">
+        <img class="profile-image" src="{{ user.avatar.url }}" alt="" />
+        <p class="text">
+          <span class="hello">Hello,</span> <br />
+          <span class="name">@{{ user.username }}</span>
+        </p>
+      </a>
+      {% else %}
+      <a class="login" href="{% url 'accounts:login' %}">
+        <i class="fa-solid fa-circle-user"></i>
+        <p class="text">Login</p>
+      </a>
+      {% endif %}
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const topicItems = document.querySelectorAll(".item");
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const topicItems = document.querySelectorAll(".item");
+        topicItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            topicItems.forEach((otherItem) => {
+              otherItem.classList.remove("clicked");
+            });
 
-    topicItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        topicItems.forEach((otherItem) => {
-          otherItem.classList.remove("clicked");
+            item.classList.toggle("clicked");
+          });
         });
-
-        item.classList.toggle("clicked");
       });
-    });
-  });
-</script>
+    </script>
+  </body>
+</html>
