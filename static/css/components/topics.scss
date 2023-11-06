@@ -78,6 +78,8 @@ $color-error: #fc4b0b;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $color-dark-light;
     .top {
       display: flex;
       align-items: center;
