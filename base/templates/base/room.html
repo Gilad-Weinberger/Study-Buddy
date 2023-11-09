@@ -71,21 +71,25 @@
                 <p class="topic">{{ topic }}</p>
                 {% endfor %}
               </div>
-              {% if not show_text_input %}
-              <form
-                class="join"
-                method="post"
-                action="{% url 'join_room' room.id %}"
-              >
-                {% csrf_token %}
-                <button class="submit" type="submit">
-                  <i class="fa-solid fa-user-plus"></i> Join
-                </button>
-              </form>
+              {% if not user_in_room %}
+                <form class="join" method="post" action="{% url 'join_room' room.id %}">
+                  {% csrf_token %}
+                  <button class="submit" type="submit">
+                    <i class="fa-solid fa-user-plus"></i> Join
+                  </button>
+                </form>
+              {% else %}
+                <form class="join" method="post" action="{% url 'leave_room' room.id %}">
+                  {% csrf_token %}
+                  <button class="submit" type="submit">
+                    <i class="fa-solid fa-user-minus"></i> Leave
+                  </button>
+                </form>
               {% endif %}
             </div>
           </div>
           <div class="chat">
+            {% if user_in_room %}
             <div class="messages">
               {% for message in messages %} {% if message.new_day %}
               <div class="new-day">
@@ -116,7 +120,6 @@
               </div>
               {% endfor %}
             </div>
-            {% if show_text_input %}
             <form class="write-message" action="" method="post">
               {% csrf_token %}
               <input

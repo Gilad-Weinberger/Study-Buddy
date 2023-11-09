@@ -92,12 +92,12 @@ def room(request, room_id):
         message.save()
         return redirect('room', room_id=room.id)
 
-    show_text_input = False
+    user_in_room = False
 
     if request.user.is_authenticated:
         is_in_group = room.participants.filter(id=request.user.id).exists()
         if is_in_group:
-            show_text_input = True
+            user_in_room = True
 
     participants_list = list(participants)
     for participant in participants_list:
@@ -108,7 +108,7 @@ def room(request, room_id):
     context = {
         'room': room,
         'messages': messages,
-        'show_text_input': show_text_input,
+        'user_in_room': user_in_room,
         'participants': participants,
     }
 
@@ -143,3 +143,12 @@ def join_room(request, room_id):
 
     room.participants.add(request.user)
     return redirect('room', room_id=room.id)
+
+@login_required
+def leave_room(request, room_id):
+    room = get_object_or_404(Room, pk=room_id)
+
+    if request.user in room.participants.all():
+        room.participants.remove(request.user)
+
+    return redirect('home')

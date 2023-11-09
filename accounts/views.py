@@ -57,18 +57,19 @@ def user_details(request, user_id):
 
 @login_required
 def edit_details(request, user_id):
-    if user_id != request.user.id:
-        return redirect('home')
+    user = User.objects.get(pk=user_id)
+    if user_id != user.id:
+        return redirect('home')    
     if request.method == 'POST':
-        form = UserForm(request.POST, request.FILES, instance=request.user)
+        form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('user_details', user_id=user.id)
+            return user_details(request, user_id)
     else:
-        form = UserForm(instance=request.user)
+        form = UserForm(instance=user)
 
     context = {
-        'user': request.user,
+        'user': user,
         'form': form,
     }
 
