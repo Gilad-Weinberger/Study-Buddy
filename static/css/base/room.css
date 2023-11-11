@@ -210,26 +210,93 @@ body {
   font-size: 14px;
   margin: 0px;
 }
+.main .room .bottom .chat .messages .message .code-area {
+  position: relative;
+}
+.main .room .bottom .chat .messages .message .code-area i {
+  position: absolute;
+  left: 590px;
+  top: 15px;
+  color: #e5e5e5;
+  cursor: pointer;
+}
+.main .room .bottom .chat .messages .message .code-area .message-code {
+  overflow: auto;
+  padding: 10px;
+  max-width: 600px;
+  max-height: 330px;
+  background-color: #696d97;
+  color: #e5e5e5;
+}
 .main .room .bottom .chat .write-message {
   position: sticky;
-  bottom: -2px;
   padding: 15px 0px 0px 0px;
-  width: calc(100% - 4px);
+  width: 100%;
   background-color: #2d2d39;
   z-index: 1;
 }
-.main .room .bottom .chat .write-message input {
+.main .room .bottom .chat .write-message .message-top {
+  display: flex;
+  align-items: center;
+}
+.main .room .bottom .chat .write-message .message-top .text {
   width: 100%;
+  padding: 12px 10px;
+  margin-bottom: -5px;
+  background-color: #696d97;
+  color: #e5e5e5;
+  border-top-left-radius: 5px;
+  margin-left: -20px;
+  border: 1px solid #3f4156;
+}
+.main .room .bottom .chat .write-message .message-top .text::-moz-placeholder {
+  color: #e5e5e5;
+}
+.main .room .bottom .chat .write-message .message-top .text::placeholder {
+  color: #e5e5e5;
+}
+.main .room .bottom .chat .write-message .message-top .right {
+  display: flex;
+  align-items: center;
+  background-color: #696d97;
+  padding-right: 10px;
+  margin-bottom: -6px;
+  border-top-right-radius: 5px;
+}
+.main .room .bottom .chat .write-message .message-top .right .add-code {
+  margin: 0px 15px;
+  width: 130px;
+  height: 30px;
+  color: #e5e5e5;
+  background-color: #3f4156;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main .room .bottom .chat .write-message .message-top .right .send-message {
+  height: 40px;
+  width: 40px;
+  margin-right: -10px;
+  color: #e5e5e5;
+  background-color: #3f4156;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main .room .bottom .chat .write-message .code {
+  display: none;
+  width: calc(100% - 2px);
   padding: 12px 10px;
   background-color: #696d97;
   color: #e5e5e5;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
   margin-left: -20px;
+  border: 1px solid #3f4156;
 }
-.main .room .bottom .chat .write-message input::-moz-placeholder {
+.main .room .bottom .chat .write-message .code::-moz-placeholder {
   color: #e5e5e5;
 }
-.main .room .bottom .chat .write-message input::placeholder {
+.main .room .bottom .chat .write-message .code::placeholder {
   color: #e5e5e5;
 }
 .main .participants {

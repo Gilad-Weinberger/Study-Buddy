@@ -222,22 +222,86 @@ body {
               font-size: 14px;
               margin: 0px;
             }
+            .code-area {
+              position: relative;
+              i{
+                position: absolute;
+                left: calc(600px - 10px);
+                top: 15px;
+                color: $color-light;
+                cursor: pointer;
+              }
+              .message-code {
+                overflow: auto;
+                padding: 10px;
+                max-width: 600px;
+                max-height: 330px;
+                background-color: $color-dark-light;
+                color: $color-light;
+              }
+            }
           }
         }
         .write-message {
           position: sticky;
-          bottom: -2px;
           padding: 15px 0px 0px 0px;
-          width: calc(100% - 4px);
+          width: 100%;
           background-color: $color-bg;
           z-index: 1;
-          input {
-            width: 100%;
+          .message-top {
+            display: flex;
+            align-items: center;
+            .text {
+              width: 100%;
+              padding: 12px 10px;
+              margin-bottom: -5px;
+              background-color: $color-dark-light;
+              color: $color-light;
+              border-top-left-radius: 5px;
+              margin-left: -20px;
+              border: 1px solid $color-dark;
+              &::placeholder {
+                color: $color-light;
+              }
+            }
+            .right {
+              display: flex;
+              align-items: center;
+              background-color: $color-dark-light;
+              padding-right: 10px;
+              margin-bottom: -6px;
+              border-top-right-radius: 5px;
+              .add-code {
+                margin: 0px 15px;
+                width: 130px;
+                height: 30px;
+                color: $color-light;
+                background-color: $color-dark;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+              .send-message {
+                height: 40px;
+                width: 40px;
+                margin-right: -10px;
+                color: $color-light;
+                background-color: $color-dark;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+              }
+            }
+          }
+          .code {
+            display: none;
+            width: calc(100% - 2px);
             padding: 12px 10px;
             background-color: $color-dark-light;
             color: $color-light;
-            border-radius: 5px;
+            border-top-left-radius: 5px;
             margin-left: -20px;
+            border: 1px solid $color-dark;
             &::placeholder {
               color: $color-light;
             }

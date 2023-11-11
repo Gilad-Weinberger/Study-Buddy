@@ -72,19 +72,27 @@
                 {% endfor %}
               </div>
               {% if not user_in_room %}
-                <form class="join" method="post" action="{% url 'join_room' room.id %}">
-                  {% csrf_token %}
-                  <button class="submit" type="submit">
-                    <i class="fa-solid fa-user-plus"></i> Join
-                  </button>
-                </form>
+              <form
+                class="join"
+                method="post"
+                action="{% url 'join_room' room.id %}"
+              >
+                {% csrf_token %}
+                <button class="submit" type="submit">
+                  <i class="fa-solid fa-user-plus"></i> Join
+                </button>
+              </form>
               {% else %}
-                <form class="join" method="post" action="{% url 'leave_room' room.id %}">
-                  {% csrf_token %}
-                  <button class="submit" type="submit">
-                    <i class="fa-solid fa-user-minus"></i> Leave
-                  </button>
-                </form>
+              <form
+                class="join"
+                method="post"
+                action="{% url 'leave_room' room.id %}"
+              >
+                {% csrf_token %}
+                <button class="submit" type="submit">
+                  <i class="fa-solid fa-user-minus"></i> Leave
+                </button>
+              </form>
               {% endif %}
             </div>
           </div>
@@ -117,16 +125,41 @@
                   </p>
                 </div>
                 <p class="message-text">{{ message.text }}</p>
+                {% if message.code %}
+                <div class="code-area">
+                  <i
+                    class="fa-regular fa-copy copy-code"
+                    onclick="copyCode('{{ message.code }}')"
+                  ></i>
+                  <pre
+                    class="message-code"
+                  ><code>{{ message.code }}</code></pre>
+                </div>
+                {% endif %}
               </div>
               {% endfor %}
             </div>
             <form class="write-message" action="" method="post">
-              {% csrf_token %}
-              <input
-                type="text"
-                name="text"
-                placeholder="Write your message here..."
-              />
+              <div class="message-top">
+                {% csrf_token %}
+                <input
+                  type="text"
+                  name="text"
+                  class="text"
+                  placeholder="Write your message here..."
+                />
+                <div class="right">
+                  <button type="button" class="add-code">+ Add Code</button>
+                  <button type="submit" class="send-message">
+                    <i class="fa-sharp fa-solid fa-paper-plane-top"></i>
+                  </button>
+                </div>
+              </div>
+              <textarea
+                name="code"
+                class="code"
+                placeholder="add your code here..."
+              ></textarea>
             </form>
             {% endif %}
           </div>
@@ -174,22 +207,40 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      $(document).ready(function () {
         const previousUrl = document.referrer;
-        const backButton = document.querySelector(".fa-arrow-left");
+        const backButton = $(".fa-arrow-left");
 
-        backButton.onclick = function () {
+        backButton.click(function () {
           if (previousUrl && previousUrl.startsWith(window.location.origin)) {
             history.back();
           } else {
             window.location.href = "{% url 'home' %}";
           }
-        };
+        });
 
-        var objDiv = document.querySelector(".chat");
-        objDiv.scrollTop = objDiv.scrollHeight;
+        var objDiv = $(".chat");
+        objDiv.scrollTop(objDiv.prop("scrollHeight"));
+
+        // Toggle code input on Add Code button click
+        $(".add-code").click(function () {
+          const codeInput = $(".code");
+          const addCodeButton = $(".add-code");
+
+          codeInput.toggle();
+          addCodeButton.text(function (i, text) {
+            return text === "+ Add Code" ? "- Remove Code" : "+ Add Code";
+          });
+          objDiv.scrollTop(objDiv.prop("scrollHeight"));
+        });
       });
+      function copyCode(code) {
+        var copyText = code;
+        navigator.clipboard.writeText(copyText);
+        alert("Copied the code: " + copyText);
+      }
     </script>
   </body>
 </html>

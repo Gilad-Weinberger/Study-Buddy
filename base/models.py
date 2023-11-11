@@ -38,6 +38,7 @@ class Message(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='messages_written')
     text = models.TextField(max_length=2000)
+    code = models.TextField(max_length=10000000, null=True, blank=True)
     date_sent = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

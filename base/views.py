@@ -83,14 +83,22 @@ def room(request, room_id):
     )
 
     if request.method == 'POST':
-        message = Message.objects.create(
-            room=room,
-            user=request.user,
-            text=request.POST.get('text'),
-            date_sent=timezone.now()
-        )
-        message.save()
-        return redirect('room', room_id=room.id)
+        text = request.POST.get('text')
+        code = request.POST.get('code')
+
+        code = code if code.strip() != '' else None
+
+        texts = text.strip()
+        if texts != '':
+            message = Message.objects.create(
+                room=room,
+                user=request.user,
+                text=text,
+                code=code,
+                date_sent=timezone.now()
+            )
+            message.save()
+            return redirect('room', room_id=room.id)
 
     user_in_room = False
 
