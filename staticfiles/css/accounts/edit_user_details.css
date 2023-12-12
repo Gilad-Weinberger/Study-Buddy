@@ -1,0 +1,102 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.main {
+  padding: 20px 160px;
+  min-height: calc(100vh - 125px);
+  background-color: #2d2d39;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .edit-details {
+  width: 500px;
+  background-color: #3f4156;
+  border-radius: 10px;
+}
+.main .edit-details .title {
+  text-transform: uppercase;
+  background-color: #696d97;
+  margin: 0px;
+  padding: 15px calc(50% - 70px);
+  color: #e5e5e5;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.main .edit-details .find {
+  margin: 15px 0px 10px 0px;
+  padding: 15px calc(50% - 83px);
+  color: #e5e5e5;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.main .edit-details form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 30px 20px 30px;
+}
+.main .edit-details form p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+.main .edit-details form p a {
+  color: #e5e5e5;
+  margin-bottom: 15px;
+}
+.main .edit-details form p span {
+  color: #71c6dd;
+}
+.main .edit-details form p span ul li {
+  color: #71c6dd;
+}
+.main .edit-details form p br {
+  display: none;
+}
+.main .edit-details form p label {
+  color: #b2bdbd;
+  margin-bottom: 10px;
+}
+.main .edit-details form p input,
+.main .edit-details form p textarea {
+  padding: 10px;
+  border: 1px solid #696d97;
+  background: transparent;
+  border-radius: 3px;
+  color: #e5e5e5;
+  font-weight: 500;
+  max-width: calc(100% - 21px);
+}
+.main .edit-details form p input:focus,
+.main .edit-details form p textarea:focus {
+  border: 1px solid #71c6dd;
+}
+.main .edit-details form .submit {
+  width: 130px;
+  background-color: #71c6dd;
+  color: #3f4156;
+  padding: 10px 0px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+.main .edit-details form .submit i {
+  margin-right: 8px;
+}
+.main .edit-details .not {
+  text-align: center;
+  color: #e5e5e5;
+  margin-bottom: 30px;
+}
+.main .edit-details .not a {
+  text-decoration: none;
+  color: #71c6dd;
+}/*# sourceMappingURL=edit_user_details.css.map */
