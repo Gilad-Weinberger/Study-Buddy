@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(BASE_DIR / 'db.sqlite3'),
-        'HOST': 'https://gilad-study-buddy.vercel.app/',
+        'HOST': '.vercel.app',
     }
 }
 
