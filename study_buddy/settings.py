@@ -87,12 +87,12 @@ DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'verceldb',
         'USER': 'default',
-        'PASSWORD': 'd8sFHzR4ZiOx',
-        'HOST': 'ep-solitary-queen-70047627.us-east-1.postgres.vercel-storage.com',
+        'PASSWORD': 'Ce4jRAouiWS3',
+        'HOST': 'ep-ancient-mouse-38006402.us-east-1.postgres.vercel-storage.com',
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
-            'options': 'endpoint=ep-solitary-queen-70047627',
+            'options': 'endpoint=ep-ancient-mouse-38006402',
         },
     }
 
