@@ -13,12 +13,12 @@ $color-error: #fc4b0b;
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: $color-dark;
   padding: 10px 160px 20px 160px;
   .logo {
     display: flex;
     align-items: center;
-    margin-right: 10%;
     text-decoration: none;
     img {
       height: 30px;
@@ -46,12 +46,11 @@ $color-error: #fc4b0b;
       border: none;
       padding: 14px 45px;
       font-size: 15px;
-      width: 360px;
+      width: 460px;
       border-radius: 5px;
     }
   }
   .login {
-    margin-left: 30%;
     display: flex;
     align-items: center;
     text-decoration: none;
