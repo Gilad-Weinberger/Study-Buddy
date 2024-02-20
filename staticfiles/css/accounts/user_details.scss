@@ -1,0 +1,198 @@
+$color-main: #71c6dd;
+$color-main-light: #e1f6fb;
+$color-dark: #3f4156;
+$color-dark-medium: #51546e;
+$color-dark-light: #696d97;
+$color-light: #e5e5e5;
+$color-gray: #8b8b8b;
+$color-light-gray: #b2bdbd;
+$color-bg: #2d2d39;
+$color-success: #5dd693;
+$color-error: #fc4b0b;
+
+html {
+  height: 100%;
+}
+body {
+  background-color: $color-bg;
+  margin: 0px;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.main {
+  padding: 20px 160px;
+  display: flex;
+  justify-content: space-between;
+  .rooms {
+    width: 580px;
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .profile-image {
+        display: flex;
+        position: relative;
+        $image-height: 80px;
+        max-height: $image-height;
+        max-width: $image-height;
+        img {
+          height: $image-height;
+          width: $image-height;
+          border-radius: 50%;
+          border: 2px solid $color-main;
+        }
+        .dot {
+          height: 11px;
+          width: 11px;
+          border: 2px solid $color-dark;
+          background-color: $color-gray;
+          border-radius: 50%;
+          position: absolute;
+          right: 0px;
+          bottom: 0px;
+        }
+      }
+      .full-name {
+        color: $color-light;
+        font-size: 20px;
+        margin: 10px;
+      }
+      .username {
+        color: $color-main;
+        margin: 0px;
+      }
+      .changes {
+        margin-top: 30px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn {
+          background-color: $color-dark-light;
+          color: $color-light;
+          padding: 6px 12px;
+          border-radius: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+    .about-title {
+      text-transform: uppercase;
+      color: $color-dark-light;
+      margin: 20px 0px 6px 0px;
+    }
+    .about {
+      color: $color-light;
+      margin: 0px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .room-title {
+      color: $color-dark-light;
+      margin: 30px 0px 6px 0px;
+      font-weight: 500;
+    }
+    .items {
+      margin-top: 20px;
+      .item {
+        padding: 20px;
+        background-color: $color-dark;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        .top {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          max-height: 40px;
+          .left {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            .profile-image {
+              display: flex;
+              position: relative;
+              margin-right: 10px;
+              $image-height: 32px;
+              max-height: $image-height;
+              img {
+                height: $image-height;
+                width: $image-height;
+                border-radius: 50%;
+                border: 2px solid $color-main;
+              }
+              .dot {
+                height: 9px;
+                width: 9px;
+                border: 2px solid $color-dark;
+                background-color: $color-gray;
+                border-radius: 50%;
+                position: absolute;
+                right: -4px;
+                bottom: -4px;
+              }
+            }
+            .name {
+              color: $color-main;
+              margin: 0px;
+            }
+          }
+          .time-past-created {
+            color: $color-light;
+            font-size: 14px;
+          }
+        }
+        .room-link {
+          text-decoration: none;
+          .room-name {
+            color: $color-light;
+            margin: 20px 0px;
+            font-size: 20px;
+            font-weight: 500;
+            &:hover {
+              color: $color-main;
+            }
+          }
+        }
+        .bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 2px solid $color-dark-medium;
+          padding-top: 10px;
+          .left {
+            display: flex;
+            align-items: center;
+            i {
+              margin-right: 8px;
+              color: $color-main;
+            }
+            .people-count {
+              color: $color-light-gray;
+              margin: 0px;
+            }
+          }
+          .topic {
+            margin: 0px;
+            color: $color-light-gray;
+            background-color: $color-dark-medium;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    .rooms {
+      margin-top: 25px;
+      max-width: calc(100vw - 60px);
+    }
+  }
+}

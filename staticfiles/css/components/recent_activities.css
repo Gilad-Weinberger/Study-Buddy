@@ -1,0 +1,90 @@
+.recent_activities {
+  width: 300px;
+  border-radius: 5px;
+  background-color: #3f4156;
+  max-height: 620px;
+}
+.recent_activities .title {
+  color: #e5e5e5;
+  background-color: #696d97;
+  padding: 10px 15px;
+  margin: 0px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  letter-spacing: 0.8px;
+}
+.recent_activities .items {
+  padding: 15px;
+}
+.recent_activities .items .item {
+  padding: 15px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #51546e;
+}
+.recent_activities .items .item .profile {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+.recent_activities .items .item .profile .profile-image {
+  display: flex;
+  position: relative;
+  max-height: 32px;
+  margin-right: 10px;
+}
+.recent_activities .items .item .profile .profile-image img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 2px solid #71c6dd;
+}
+.recent_activities .items .item .profile .profile-image .dot {
+  height: 9px;
+  width: 9px;
+  border: 2px solid #3f4156;
+  background-color: #8b8b8b;
+  border-radius: 50%;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
+.recent_activities .items .item .profile .info .name {
+  margin: 0px;
+  color: #71c6dd;
+}
+.recent_activities .items .item .profile .info .time-past-sent {
+  margin: 0px;
+  color: #8b8b8b;
+  font-size: 13.4px;
+}
+.recent_activities .items .item .reply,
+.recent_activities .items .item .room {
+  margin: 0px;
+  color: #b2bdbd;
+  margin-left: 40px;
+  font-size: 14px;
+}
+.recent_activities .items .item .room {
+  color: #71c6dd;
+  text-decoration: none;
+}
+.recent_activities .items .item .message {
+  width: 226px;
+  max-width: 226px;
+  background-color: #2d2d39;
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+}
+.recent_activities .items .item:nth-last-child(-1) {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 640px) {
+  .recent_activities {
+    display: none;
+  }
+}/*# sourceMappingURL=recent_activities.css.map */
