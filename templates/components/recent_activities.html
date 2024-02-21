@@ -21,7 +21,7 @@
             <div class="profile-image">
               <img src="{{ message.user.avatar.url }}" alt="" />
               <div
-                class="dot{% if message.user_connected_recently %} connected{% endif %}"
+                class="dot{% if message.user.is_active %} active{% endif %}"
               ></div>
             </div>
             <div class="info">

@@ -84,11 +84,14 @@ body {
   height: 9px;
   width: 9px;
   border: 2px solid #3f4156;
-  background-color: #8b8b8b;
+  background-color: red;
   border-radius: 50%;
   position: absolute;
   right: -4px;
   bottom: -4px;
+}
+.main .rooms .items .item .top .left .profile-image .dot.active {
+  background-color: green;
 }
 .main .rooms .items .item .top .left .name {
   color: #71c6dd;

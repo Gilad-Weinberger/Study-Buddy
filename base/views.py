@@ -30,7 +30,7 @@ def Home(request):
     last_hour = current_time - timezone.timedelta(hours=1)
 
     for room in rooms:
-        room.user_connected_recently = room.user_created.last_login >= last_hour
+        room.user_connected_recently = room.host.last_login >= last_hour
 
     for message in recent_messages:
         message.user_connected_recently = message.user.last_login >= last_hour

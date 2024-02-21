@@ -6,7 +6,7 @@ class Room(models.Model):
     name = models.CharField(max_length=200)
     topics = models.ManyToManyField('Topic', related_name='rooms')
     participants = models.ManyToManyField(User, related_name='rooms_participating')
-    user_created = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms_created')
+    host = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rooms_created')
     date_created = models.DateTimeField(auto_now_add=True)
     is_private = models.BooleanField(default=False)
     key = models.CharField(max_length=8, blank=True)

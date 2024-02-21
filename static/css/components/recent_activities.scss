@@ -54,11 +54,14 @@ $recent-border-radius: 5px;
             height: 9px;
             width: 9px;
             border: 2px solid $color-dark;
-            background-color: $color-gray;
+            background-color: red;
             border-radius: 50%;
             position: absolute;
             right: -4px;
             bottom: -4px;
+            &.active {
+              background-color: green;
+            }
           }
         }
         .info {
