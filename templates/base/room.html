@@ -55,15 +55,15 @@
             <p class="hosted">hosted by</p>
             <a
               class="user-created"
-              href="{% url 'accounts:user_details' room.user_created.id %}"
+              href="{% url 'accounts:user_details' room.host.id %}"
             >
               <div class="profile-image">
-                <img src="{{ room.user_created.avatar.url }}" alt="" />
+                <img src="{{ room.host.avatar.url }}" alt="" />
                 <div
                   class="dot{% if room.user_connected_recently %} connected{% endif %}"
                 ></div>
               </div>
-              <p class="name">@{{ room.user_created.username }}</p>
+              <p class="name">@{{ room.host.username }}</p>
             </a>
             <div class="last">
               <div class="topics">
@@ -174,17 +174,17 @@
         <div class="bottom">
           <a
             class="participant host"
-            href="{% url 'accounts:user_details' room.user_created.id %}"
+            href="{% url 'accounts:user_details' room.host.id %}"
           >
             <div class="profile-image">
-              <img src="{{ room.user_created.avatar.url }}" alt="" />
+              <img src="{{ room.host.avatar.url }}" alt="" />
               <div
-                class="dot{% if room.user_created.id.user_connected_recently %} connected{% endif %}"
+                class="dot{% if room.host.id.user_connected_recently %} connected{% endif %}"
               ></div>
             </div>
             <div class="info">
-              <p class="full-name">{{ room.user_created.full_name }}</p>
-              <p class="username">@{{ room.user_created.username }}</p>
+              <p class="full-name">{{ room.host.full_name }}</p>
+              <p class="username">@{{ room.host.username }}</p>
             </div>
           </a>
           {% for participant in participants %}

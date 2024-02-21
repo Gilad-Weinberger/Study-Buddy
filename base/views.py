@@ -78,7 +78,7 @@ def room(request, room_id):
 
     subquery = Message.objects.filter(user=OuterRef('id'), room=room).order_by('-date_sent')
     
-    participants = room.participants.exclude(id=room.user_created.id).annotate(
+    participants = room.participants.exclude(id=room.host.id).annotate(
         last_message_date=Subquery(subquery.values('date_sent')[:1])
     )
 
@@ -111,7 +111,7 @@ def room(request, room_id):
     for participant in participants_list:
         participant.full_name = f"{participant.first_name} {participant.last_name}"
 
-    room.user_created.full_name = f"{room.user_created.first_name} {room.user_created.last_name}"
+    room.host.full_name = f"{room.host.first_name} {room.host.last_name}"
 
     context = {
         'room': room,

@@ -70,7 +70,7 @@
                     class="dot{% if room.host.is_active %} active{% endif %}"
                   ></div>
                 </div>
-                <p class="name">@{{ room.user_created.username }}</p>
+                <p class="name">@{{ room.host.username }}</p>
               </a>
               <p class="time-past-created">
                 {{ room.date_created|timesince }} ago

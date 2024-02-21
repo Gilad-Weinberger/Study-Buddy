@@ -75,15 +75,15 @@
             <div class="top">
               <a
                 class="left"
-                href="{% url 'accounts:user_details' room.user_created.id %}"
+                href="{% url 'accounts:user_details' room.host.id %}"
               >
                 <div class="profile-image">
-                  <img src="{{ room.user_created.avatar.url }}" alt="" />
+                  <img src="{{ room.host.avatar.url }}" alt="" />
                   <div
                     class="dot{% if room.user_connected_recently %} connected{% endif %}"
                   ></div>
                 </div>
-                <p class="name">@{{ room.user_created.username }}</p>
+                <p class="name">@{{ room.host.username }}</p>
               </a>
               <p class="time-past-created">
                 {{ room.date_created|timesince }} ago
