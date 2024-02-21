@@ -83,19 +83,6 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': 'Ce4jRAouiWS3',
-        'HOST': 'ep-ancient-mouse-38006402.us-east-1.postgres.vercel-storage.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-            'options': 'endpoint=ep-ancient-mouse-38006402',
-        },
-    }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

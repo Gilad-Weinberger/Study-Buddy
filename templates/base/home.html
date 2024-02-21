@@ -37,9 +37,9 @@
     <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
-    {% include 'base/components/navbar.html' %}
+    {% include 'components/navbar.html' %}
     <div class="main">
-      {% include 'base/components/topics.html' %}
+      {% include 'components/topics.html' %}
       <div class="rooms">
         <div class="top">
           <div class="left">
@@ -60,7 +60,10 @@
           {% for room in rooms %}
           <div class="item">
             <div class="top">
-              <a class="left" href="{% url 'accounts:user_details' room.user_created.id %}">
+              <a
+                class="left"
+                href="{% url 'accounts:user_details' room.user_created.id %}"
+              >
                 <div class="profile-image">
                   <img src="{{ room.user_created.avatar.url }}" alt="" />
                   <div
@@ -73,7 +76,9 @@
                 {{ room.date_created|timesince }} ago
               </p>
             </div>
-            <a href="{% url 'room' room.id %}" class="room-link"><p class="room-name">{{ room.name }}</p></a>
+            <a href="{% url 'room' room.id %}" class="room-link"
+              ><p class="room-name">{{ room.name }}</p></a
+            >
             <div class="bottom">
               <div class="left">
                 <i class="fa-light fa-user-group"></i>
@@ -85,7 +90,7 @@
           {% endfor %}
         </div>
       </div>
-      {% include 'base/components/recent_activities.html' %}
+      {% include 'components/recent_activities.html' %}
     </div>
   </body>
 </html>

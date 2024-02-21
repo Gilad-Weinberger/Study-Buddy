@@ -22,7 +22,9 @@
       </form>
       {% if user.is_authenticated %}
       <a class="login" href="{% url 'accounts:user_details' user.id %}">
+        {% if user.avatar.url %}
         <img class="profile-image" src="{{ user.avatar.url }}" alt="" />
+        {% endif %}
         <p class="text">
           <span class="hello">Hello,</span> <br />
           <span class="name">@{{ user.username }}</span>

@@ -33,21 +33,29 @@
       href="{% static 'images/logo.png' %}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="{% static 'css/accounts/edit_user_details.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/accounts/signup.css' %}" />
     <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
-    {% include 'base/components/navbar.html' %}
+    {% include 'components/navbar.html' %}
     <div class="main">
-      <div class="edit-details">
-        <p class="title">edit user details</p>
+      <div class="signup">
+        <p class="title">SIGNUP</p>
         <p class="find">Find your study partner</p>
-        <form method="POST" action="{% url 'accounts:edit_details' user.id %}">
+        <form
+          method="POST"
+          action="{% url 'accounts:signup' %}"
+          enctype="multipart/form-data"
+        >
           {% csrf_token %} {{ form.as_p }}
           <button class="submit" type="submit">
-            <i class="fa-solid fa-check"></i> Save Details
+            <i class="fa-regular fa-user-plus"></i> Register
           </button>
         </form>
+        <p class="not">
+          Already have an account?
+          <a href="{% url 'accounts:login' %}">Log In</a>
+        </p>
       </div>
     </div>
   </body>

@@ -27,31 +27,27 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudyBuddy | Login</title>
+    <title>StudyBuddy | Create Room</title>
     <link
       rel="shortcut icon"
       href="{% static 'images/logo.png' %}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="{% static 'css/accounts/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base/create_room.css' %}" />
     <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
-    {% include 'base/components/navbar.html' %}
+    {% include 'components/navbar.html' %}
     <div class="main">
-      <div class="login">
-        <p class="title">LOGIN</p>
+      <div class="create-room">
+        <p class="title">create room</p>
         <p class="find">Find your study partner</p>
-        <form method="POST" action="{% url 'accounts:login' %}">
+        <form method="POST" action="{% url 'create_room' %}">
           {% csrf_token %} {{ form.as_p }}
           <button class="submit" type="submit">
-            <i class="fa-regular fa-lock-keyhole"></i>Login
+            <i class="fa-regular fa-plus"></i> Create Room
           </button>
         </form>
-        <p class="not">
-          Don't have an account?
-          <a href="{% url 'accounts:signup' %}">Sign Up</a>
-        </p>
       </div>
     </div>
   </body>

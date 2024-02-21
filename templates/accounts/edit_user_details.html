@@ -27,25 +27,25 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudyBuddy | Create Room</title>
+    <title>StudyBuddy | Login</title>
     <link
       rel="shortcut icon"
       href="{% static 'images/logo.png' %}"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="{% static 'css/base/create_room.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/accounts/edit_user_details.css' %}" />
     <!-- <meta http-equiv="refresh" content="1" /> -->
   </head>
   <body>
-    {% include 'base/components/navbar.html' %}
+    {% include 'components/navbar.html' %}
     <div class="main">
-      <div class="create-room">
-        <p class="title">create room</p>
+      <div class="edit-details">
+        <p class="title">edit user details</p>
         <p class="find">Find your study partner</p>
-        <form method="POST" action="{% url 'create_room' %}">
+        <form method="POST" action="{% url 'accounts:edit_details' user.id %}">
           {% csrf_token %} {{ form.as_p }}
           <button class="submit" type="submit">
-            <i class="fa-regular fa-plus"></i> Create Room
+            <i class="fa-solid fa-check"></i> Save Details
           </button>
         </form>
       </div>
