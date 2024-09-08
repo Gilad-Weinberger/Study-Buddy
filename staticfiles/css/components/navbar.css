@@ -1,0 +1,94 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3f4156;
+  padding: 10px 350px 20px 160px;
+}
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.navbar .logo img {
+  height: 30px;
+}
+.navbar .logo .text {
+  margin-left: 15px;
+  font-size: 20px;
+  color: #e5e5e5;
+  font-weight: 700;
+}
+.navbar form {
+  position: relative;
+}
+.navbar form i {
+  color: #8b8b8b;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 21px;
+  font-weight: 400;
+}
+.navbar form .search {
+  background-color: #50556e;
+  color: white;
+  border: none;
+  padding: 14px 45px;
+  font-size: 15px;
+  width: 460px;
+  border-radius: 5px;
+}
+.navbar .login {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #8b8b8b;
+}
+.navbar .login .hello {
+  font-size: 15px;
+}
+.navbar .login .name {
+  color: #71c6dd;
+}
+.navbar .login .profile-image {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 2px solid #71c6dd;
+}
+.navbar .login i {
+  font-size: 34px;
+}
+.navbar .login .text {
+  margin: 0px;
+  margin-left: 8px;
+  font-size: 17px;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 20px 30px;
+    justify-content: space-evenly;
+  }
+  .navbar .logo {
+    margin: 0px;
+  }
+  .navbar .logo .text {
+    display: none;
+  }
+  .navbar form {
+    margin: 0px 20px;
+  }
+  .navbar form .search {
+    width: 55vw;
+  }
+  .navbar .login {
+    margin-left: 0px;
+  }
+  .navbar .login .hello,
+  .navbar .login .name,
+  .navbar .login .text {
+    display: none;
+  }
+}/*# sourceMappingURL=navbar.css.map */
