@@ -39,19 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'accounts',
-    'whitenoise.runserver_nonstatic'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Ensure this is properly capitalized
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.whiteNoiseMiddleware',
 ]
+
 
 ROOT_URLCONF = 'study_buddy.urls'
 
