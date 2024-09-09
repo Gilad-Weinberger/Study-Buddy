@@ -80,15 +80,10 @@ WSGI_APPLICATION = 'study_buddy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'study_buddy_c4f4',  # Your database name
-        'USER': 'study_buddy_c4f4_user',  # Your username
-        'PASSWORD': 'h0dxVVXrRpMaUE6Sh8kfVWaQbqOoIgZD',  # Replace with your actual password
-        'HOST': 'study_buddy',  # Your hostname
-        'PORT': '5432',  # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
